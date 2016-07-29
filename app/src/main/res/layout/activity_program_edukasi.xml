@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/latar"
+    android:padding="10dp"
+    tools:context=".ProgramEdukasiActivity">
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/btnGandaKids"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonround"
+        android:text="Ganda Kids"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/btnGandaPrivat"
+        android:layout_below="@+id/btnGandaKids"
+        android:background="@drawable/buttonround"
+        android:text="Ganda Privat"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/btnGandaTalent"
+        android:layout_below="@+id/btnGandaPrivat"
+        android:background="@drawable/buttonround"
+        android:text="Ganda Talent"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/btnGandaEnglish"
+        android:layout_below="@+id/btnGandaTalent"
+        android:background="@drawable/buttonround"
+        android:text="Ganda English"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        />
+</RelativeLayout>

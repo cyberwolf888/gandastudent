@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/latar"
+    tools:context=".GandaKidsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/programDesc"
+        android:text="Deskripsi Program"
+        android:textSize="18dp"
+        android:textColor="@color/colorNormalWhite"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorNormalWhite"
+        android:layout_below="@+id/programDesc"
+        android:layout_marginTop="10dp"
+        android:id="@+id/separator"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonround"
+        android:layout_below="@+id/separator"
+        android:layout_marginTop="10dp"
+        android:text="susun jadwal"
+        android:textColor="@color/colorPrimary"
+        />
+</RelativeLayout>

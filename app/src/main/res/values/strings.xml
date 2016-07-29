@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Ganda Edukasi</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string-array name="selectMeeting">
+        <item>Choose Meeting</item>
+        <item>1 X Pertemuan</item>
+        <item>4 X Pertemuan</item>
+        <item>8 X Pertemuan</item>
+    </string-array>
+
+    <!-- Validation String -->
+    <string name="id_error_password_empty">Password tidak boleh kosong</string>
+    <string name="id_error_passowrd_length">Password terlalu pendek</string>
+    <string name="id_error_email_empty">Email tidak boleh kosong</string>
+    <string name="id_error_email_invalid">Alamat email anda salah</string>
+
+    <string name="en_error_password_empty">Ppassword cannot be empty</string>
+    <string name="en_error_passowrd_length">Password is too short</string>
+    <string name="en_error_email_empty">Email cannot be empty</string>
+    <string name="en_error_email_invalid">Your email is invalid</string>
+    <!-- End -->
+</resources>
