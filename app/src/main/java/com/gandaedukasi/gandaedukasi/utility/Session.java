@@ -23,6 +23,8 @@ public class Session {
     private static final String PREF_NAME = "Auth";
     private static final String IS_LOGIN = "isLoggedIn";
     private static final String ID_USER = "id_user";
+    private static final String ID_NAME = "fullname";
+    private static final String PHOTO = "photo";
 
     public Session(Context context){
         this._context = context;
@@ -33,11 +35,13 @@ public class Session {
     /**
      * Create login session
      * */
-    public void createLoginSession(String id_user){
+    public void createLoginSession(String id_user, String fullname, String photo){
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
         editor.putString(ID_USER, id_user);
+        editor.putString(ID_NAME, fullname);
+        editor.putString(PHOTO, photo);
         editor.commit();
     }
 
@@ -72,5 +76,9 @@ public class Session {
 
     public boolean isLoggedIn(){
         return pref.getBoolean(IS_LOGIN, false);
+    }
+
+    public String getFullname(){
+        return pref.getString(ID_NAME,"");
     }
 }

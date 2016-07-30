@@ -11,20 +11,26 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.gandaedukasi.gandaedukasi.fragments.ArticlesFragment;
 import com.gandaedukasi.gandaedukasi.fragments.HomeFragment;
 import com.gandaedukasi.gandaedukasi.fragments.MenuFragment;
+import com.gandaedukasi.gandaedukasi.utility.Session;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     Fragment fragment;
     FragmentTransaction fragmentTransaction;
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        session = new Session(MainActivity.this);
+
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -38,6 +44,14 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView studentName = (TextView) headerView.findViewById(R.id.studentName);
+
+        if(session.isLoggedIn()){
+            String fullname = session.getFullname();
+            studentName.setText(fullname);
+        }
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 

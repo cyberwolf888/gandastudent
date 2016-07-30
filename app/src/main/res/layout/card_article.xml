@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cvArticle"
+    android:background="@color/colorPrimary"
+    app:cardBackgroundColor="@color/colorTextButton">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        >
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/articleImage"
+            android:src="@drawable/logo"
+            android:padding="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:id="@+id/articleTitle"
+            android:text="Judul Artikel"
+            android:textSize="18dp"
+            android:layout_toRightOf="@+id/articleImage"
+            android:textColor="@color/colorNormalWhite"
+            android:layout_marginTop="7dp"
+            />
+        <TextView
+            android:layout_marginTop="26dp"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:id="@+id/articleDescription"
+            android:text="content content content content content content content content content content content content content content"
+            android:textSize="12dp"
+            android:layout_toRightOf="@+id/articleImage"
+            android:layout_gravity="right|center"
+            android:textColor="@color/colorNormalWhite"
+            />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
