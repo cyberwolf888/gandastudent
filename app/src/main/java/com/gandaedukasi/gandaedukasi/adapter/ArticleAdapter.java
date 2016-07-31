@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gandaedukasi.gandaedukasi.R;
 import com.gandaedukasi.gandaedukasi.models.Article;
+import com.koushikdutta.ion.Ion;
 
 import java.util.List;
 
@@ -33,6 +35,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
                 public void onClick(View v) {
                     Article feedItem = articles.get(getPosition());
                     Log.d("Item Clicked", "Element " + feedItem.title + " clicked.");
+                    Toast.makeText(mContext, "Element " + feedItem.id_article + " clicked.", Toast.LENGTH_LONG).show();
                 }
             });
             cv = (CardView)itemView.findViewById(R.id.cvArticle);
@@ -63,9 +66,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
 
     @Override
     public void onBindViewHolder(ArticleViewHolder articleViewHolder, int i) {
+        Ion.with(mContext)
+                .load(articles.get(i).cover)
+                .withBitmap()
+                .placeholder(R.drawable.logo)
+                .error(R.drawable.not_available)
+                .intoImageView(articleViewHolder.articleImage);
         articleViewHolder.articleTitle.setText(articles.get(i).title);
         articleViewHolder.articleDescription.setText(articles.get(i).content);
-        articleViewHolder.articleImage.setImageResource(R.drawable.logo);
+        //articleViewHolder.articleImage.setImageResource(R.drawable.logo);
     }
 
     @Override

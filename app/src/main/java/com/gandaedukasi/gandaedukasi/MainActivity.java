@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity
 
     Fragment fragment;
     FragmentTransaction fragmentTransaction;
+    TextView studentName;
+    NavigationView navigationView;
     Session session;
 
     @Override
@@ -42,16 +45,11 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         View headerView = navigationView.getHeaderView(0);
-        TextView studentName = (TextView) headerView.findViewById(R.id.studentName);
-
-        if(session.isLoggedIn()){
-            String fullname = session.getFullname();
-            studentName.setText(fullname);
-        }
+        studentName = (TextView) headerView.findViewById(R.id.studentName);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
@@ -61,6 +59,19 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setTitle("Ganda Edukasi");
     }
 
+    public void onResume (){
+        super.onResume();
+        if(session.isLoggedIn()){
+            String fullname = session.getFullname();
+            studentName.setText(fullname);
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+        }else {
+            studentName.setText("Guest");
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+        }
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -92,6 +103,11 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.nav_login){
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(i);
+        }
+        else if (id == R.id.nav_logout){
+            session.logoutUser();
+            //Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            //startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

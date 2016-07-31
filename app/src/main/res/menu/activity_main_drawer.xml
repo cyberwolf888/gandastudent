@@ -23,6 +23,10 @@
                 android:title="Sign In" />
         </group>
     </item>
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/login"
+        android:title="Logout" />
     <!--<item android:title="Ganda Edukasi">
         <menu>
             <item
