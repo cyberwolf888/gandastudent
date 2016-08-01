@@ -81,4 +81,8 @@ public class Session {
     public String getFullname(){
         return pref.getString(ID_NAME,"");
     }
+
+    public String getUserId(){
+        return pref.getString(ID_USER,"");
+    }
 }

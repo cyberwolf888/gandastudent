@@ -64,10 +64,12 @@ public class MainActivity extends AppCompatActivity
         if(session.isLoggedIn()){
             String fullname = session.getFullname();
             studentName.setText(fullname);
+            navigationView.getMenu().findItem(R.id.nav_home).setVisible(true);
             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
         }else {
             studentName.setText("Guest");
+            navigationView.getMenu().findItem(R.id.nav_home).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_login).setVisible(true);
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
         }
@@ -96,10 +98,12 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
             getSupportActionBar().setTitle("Articles");
         } else if (id == R.id.nav_home) {
-            fragment = new MenuFragment();
+            /*fragment = new MenuFragment();
             fragmentTransaction.replace(R.id.frame, fragment);
             fragmentTransaction.commit();
-            getSupportActionBar().setTitle("Main Menu");
+            getSupportActionBar().setTitle("Main Menu");*/
+            Intent i = new Intent(MainActivity.this, MenuActivity.class);
+            startActivity(i);
         }else if (id == R.id.nav_login){
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(i);

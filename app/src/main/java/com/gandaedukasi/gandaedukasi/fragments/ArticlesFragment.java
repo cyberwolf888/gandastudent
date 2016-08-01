@@ -1,6 +1,9 @@
 package com.gandaedukasi.gandaedukasi.fragments;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,43 +48,44 @@ public class ArticlesFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.list_articles, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.rvArticle);
         mLayoutManager = new LinearLayoutManager(getActivity());
+        if(isNetworkAvailable()) {
+            pDialog = new ProgressDialog(getActivity());
+            pDialog.setMessage("Loading...");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
 
-        pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Loading...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(true);
-        pDialog.show();
+            articles = new ArrayList<>();
+            data = new JsonArray();
+            String url = new RequestServer().getServer_url() + "article";
 
-        articles = new ArrayList<>();
-        data = new JsonArray();
-        String url = new RequestServer().getServer_url()+"article";
+            JsonObject jsonReq = new JsonObject();
+            jsonReq.addProperty("request", true);
 
-        JsonObject jsonReq = new JsonObject();
-        jsonReq.addProperty("request", true);
-
-        Ion.with(getActivity().getApplicationContext())
-                .load(url)
-                .setJsonObjectBody(jsonReq)
-                .asJsonObject()
-                .setCallback(new FutureCallback<JsonObject>() {
-                    @Override
-                    public void onCompleted(Exception e, JsonObject result) {
-                        String status = result.get("status").getAsString();
-                        //Log.d("Response",">"+result);
-                        if (status.equals("1")){
-                            initializeData(result.getAsJsonArray("data"));
-                            //articles.add(new Article("4", "Emma Wilson", "23 years old", "http://gandaedukasi.esy.es/images/article/image1.png"));
-                            mAdapter = new ArticleAdapter(getActivity().getApplicationContext(),articles);
-                            mRecyclerView.setAdapter(mAdapter);
-                            mRecyclerView.setLayoutManager(mLayoutManager);
-                        }else {
-                            Toast.makeText(getActivity().getApplicationContext(), "Data article kosong!", Toast.LENGTH_LONG).show();
+            Ion.with(getActivity().getApplicationContext())
+                    .load(url)
+                    .setJsonObjectBody(jsonReq)
+                    .asJsonObject()
+                    .setCallback(new FutureCallback<JsonObject>() {
+                        @Override
+                        public void onCompleted(Exception e, JsonObject result) {
+                            String status = result.get("status").getAsString();
+                            //Log.d("Response",">"+result);
+                            if (status.equals("1")) {
+                                initializeData(result.getAsJsonArray("data"));
+                                //articles.add(new Article("4", "Emma Wilson", "23 years old", "http://gandaedukasi.esy.es/images/article/image1.png"));
+                                mAdapter = new ArticleAdapter(getActivity().getApplicationContext(), articles);
+                                mRecyclerView.setAdapter(mAdapter);
+                                mRecyclerView.setLayoutManager(mLayoutManager);
+                            } else {
+                                Toast.makeText(getActivity().getApplicationContext(), "Data article kosong!", Toast.LENGTH_LONG).show();
+                            }
+                            pDialog.dismiss();
                         }
-                        pDialog.dismiss();
-                    }
-                });
-
-
+                    });
+        }else {
+            Toast.makeText(getActivity().getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
+        }
         return rootView;
     }
     public void initializeData(JsonArray result){
@@ -93,6 +97,15 @@ public class ArticlesFragment extends Fragment {
             articles.add(new Article(objData.get("id").getAsString(),objData.get("judul").getAsString(), objData.get("created_at").getAsString(), objData.get("cover").getAsString()));
         }
 
+    }
+    public boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager)
+                getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            return true;
+        }
+        return false;
     }
 
 
