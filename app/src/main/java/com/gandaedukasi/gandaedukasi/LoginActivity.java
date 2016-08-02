@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                 pDialog = new ProgressDialog(LoginActivity.this);
                 pDialog.setMessage("Loading...");
                 pDialog.setIndeterminate(false);
-                pDialog.setCancelable(true);
+                pDialog.setCancelable(false);
                 pDialog.show();
 
                 String url = new RequestServer().getServer_url()+"login";
@@ -113,18 +113,23 @@ public class LoginActivity extends AppCompatActivity {
                         .setCallback(new FutureCallback<JsonObject>() {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
-                                String status = result.get("status").toString();
-                                if (status.equals("1")){
-                                    JsonObject data = result.getAsJsonObject("data");
-                                    Log.d("Response",">"+data);
-                                    session.createLoginSession(data.get("user_id").getAsString(),data.get("fullname").getAsString(),data.get("photo").getAsString());
-                                    Intent i = new Intent(LoginActivity.this, MenuActivity.class);
-                                    startActivity(i);
-                                    finish();
-                                    //Toast.makeText(getApplicationContext(), data.get("fullname").toString(), Toast.LENGTH_LONG).show();
-                                }else{
-                                    Toast.makeText(getApplicationContext(), getString(R.string.id_error_login), Toast.LENGTH_LONG).show();
+                                try{
+                                    String status = result.get("status").toString();
+                                    if (status.equals("1")){
+                                        JsonObject data = result.getAsJsonObject("data");
+                                        Log.d("Response",">"+data);
+                                        session.createLoginSession(data.get("user_id").getAsString(),data.get("fullname").getAsString(),data.get("photo").getAsString());
+                                        Intent i = new Intent(LoginActivity.this, MenuActivity.class);
+                                        startActivity(i);
+                                        finish();
+                                        //Toast.makeText(getApplicationContext(), data.get("fullname").toString(), Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(getApplicationContext(), getString(R.string.id_error_login), Toast.LENGTH_LONG).show();
+                                    }
+                                }catch (Exception ex){
+                                    Toast.makeText(getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
                                 }
+
                                 pDialog.dismiss();
                             }});
 

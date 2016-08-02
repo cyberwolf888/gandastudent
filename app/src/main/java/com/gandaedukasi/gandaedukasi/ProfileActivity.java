@@ -40,7 +40,7 @@ public class ProfileActivity extends AppCompatActivity {
         pDialog = new ProgressDialog(ProfileActivity.this);
         pDialog.setMessage("Loading...");
         pDialog.setIndeterminate(false);
-        pDialog.setCancelable(true);
+        pDialog.setCancelable(false);
 
         ImageView btnEdit;
         btnEdit = (ImageView)findViewById(R.id.btnEdit);
@@ -70,17 +70,21 @@ public class ProfileActivity extends AppCompatActivity {
                     .setCallback(new FutureCallback<JsonObject>() {
                         @Override
                         public void onCompleted(Exception e, JsonObject result) {
-                            String status = result.get("status").toString();
-                            if (status.equals("1")){
-                                JsonObject data = result.getAsJsonObject("data");
-                                Log.d("Response",">"+data);
-                                studentName.setText(data.get("fullname").getAsString());
-                                school.setText(data.get("siswa_pendidikan").getAsString());
-                                address.setText(data.get("alamat").getAsString());
-                                parent.setText(data.get("siswa_wali").getAsString());
-                                phone.setText(data.get("siswa_cp").getAsString());
-                                email.setText(data.get("email").getAsString());
-                            }else {
+                            try{
+                                String status = result.get("status").toString();
+                                if (status.equals("1")){
+                                    JsonObject data = result.getAsJsonObject("data");
+                                    Log.d("Response",">"+data);
+                                    studentName.setText(data.get("fullname").getAsString());
+                                    school.setText(data.get("siswa_pendidikan").getAsString());
+                                    address.setText(data.get("alamat").getAsString());
+                                    parent.setText(data.get("siswa_wali").getAsString());
+                                    phone.setText(data.get("siswa_cp").getAsString());
+                                    email.setText(data.get("email").getAsString());
+                                }else {
+                                    Toast.makeText(getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
+                                }
+                            }catch (Exception ex){
                                 Toast.makeText(getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
                             }
                             pDialog.dismiss();

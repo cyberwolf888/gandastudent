@@ -69,16 +69,20 @@ public class ArticlesFragment extends Fragment {
                     .setCallback(new FutureCallback<JsonObject>() {
                         @Override
                         public void onCompleted(Exception e, JsonObject result) {
-                            String status = result.get("status").getAsString();
-                            //Log.d("Response",">"+result);
-                            if (status.equals("1")) {
-                                initializeData(result.getAsJsonArray("data"));
-                                //articles.add(new Article("4", "Emma Wilson", "23 years old", "http://gandaedukasi.esy.es/images/article/image1.png"));
-                                mAdapter = new ArticleAdapter(getActivity().getApplicationContext(), articles);
-                                mRecyclerView.setAdapter(mAdapter);
-                                mRecyclerView.setLayoutManager(mLayoutManager);
-                            } else {
-                                Toast.makeText(getActivity().getApplicationContext(), "Data article kosong!", Toast.LENGTH_LONG).show();
+                            try{
+                                String status = result.get("status").getAsString();
+                                //Log.d("Response",">"+result);
+                                if (status.equals("1")) {
+                                    initializeData(result.getAsJsonArray("data"));
+                                    //articles.add(new Article("4", "Emma Wilson", "23 years old", "http://gandaedukasi.esy.es/images/article/image1.png"));
+                                    mAdapter = new ArticleAdapter(getActivity().getApplicationContext(), articles);
+                                    mRecyclerView.setAdapter(mAdapter);
+                                    mRecyclerView.setLayoutManager(mLayoutManager);
+                                } else {
+                                    Toast.makeText(getActivity().getApplicationContext(), "Data article kosong!", Toast.LENGTH_LONG).show();
+                                }
+                            }catch (Exception ex){
+                                Toast.makeText(getActivity().getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
                             }
                             pDialog.dismiss();
                         }
