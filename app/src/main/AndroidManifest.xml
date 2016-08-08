@@ -3,7 +3,7 @@
     package="com.gandaedukasi.gandaedukasi">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -36,7 +36,8 @@
         <activity android:name=".PertemuanActivity" />
         <activity android:name=".DetailPertemuanActivity" />
         <activity android:name=".GandaKidsActivity" />
-        <activity android:name=".KidsAssignSchActivity"></activity>
+        <activity android:name=".KidsAssignSchActivity" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>
