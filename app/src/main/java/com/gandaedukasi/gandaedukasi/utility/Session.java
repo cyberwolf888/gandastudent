@@ -85,4 +85,16 @@ public class Session {
     public String getUserId(){
         return pref.getString(ID_USER,"");
     }
+
+    public String getUserPhoto() {
+        return pref.getString(PHOTO,"");
+    }
+
+    public void editPhoto(String photo){
+        editor.putString(PHOTO, photo).apply();
+    }
+
+    public void editName(String name){
+        editor.putString(ID_NAME, name).apply();
+    }
 }

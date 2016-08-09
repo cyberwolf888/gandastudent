@@ -13,12 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gandaedukasi.gandaedukasi.fragments.ArticlesFragment;
 import com.gandaedukasi.gandaedukasi.fragments.HomeFragment;
 import com.gandaedukasi.gandaedukasi.fragments.MenuFragment;
+import com.gandaedukasi.gandaedukasi.utility.RequestServer;
 import com.gandaedukasi.gandaedukasi.utility.Session;
+import com.koushikdutta.ion.Ion;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity
     Fragment fragment;
     FragmentTransaction fragmentTransaction;
     TextView studentName;
+    ImageView studentPhoto;
     NavigationView navigationView;
     Session session;
 
@@ -50,6 +54,7 @@ public class MainActivity extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
         studentName = (TextView) headerView.findViewById(R.id.studentName);
+        studentPhoto = (ImageView) headerView.findViewById(R.id.studentPhoto);
 
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
@@ -67,6 +72,14 @@ public class MainActivity extends AppCompatActivity
             navigationView.getMenu().findItem(R.id.nav_home).setVisible(true);
             navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+
+            String url_photo = new RequestServer().getPhotoUrl()+"/siswa/"+session.getUserPhoto();
+            Ion.with(MainActivity.this)
+                    .load(url_photo)
+                    .withBitmap()
+                    .placeholder(R.drawable.logo)
+                    .error(R.drawable.logo)
+                    .intoImageView(studentPhoto);
         }else {
             studentName.setText("Guest");
             navigationView.getMenu().findItem(R.id.nav_home).setVisible(false);

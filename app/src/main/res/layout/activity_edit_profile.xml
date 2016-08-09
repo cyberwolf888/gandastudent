@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/latar"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -18,14 +19,14 @@
             android:id="@+id/cardView"
             android:background="@color/cardview_light_background"
             >
-            <de.hdodenhof.circleimageview.CircleImageView
+            <com.makeramen.roundedimageview.RoundedImageView
+                app:riv_oval="true"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/guest"
                 android:id="@+id/studentPhoto"
-                android:layout_marginTop="5dp"
-                />
+                android:layout_marginTop="5dp" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -38,7 +39,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:id="@+id/studentName"
-                    android:text="I Nyoman Swantara"
                     android:textColor="#000000"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="110dp"
@@ -50,130 +50,34 @@
                     />
             </android.support.design.widget.TextInputLayout>
         </android.support.v7.widget.CardView>
-        <!--
+
+
+        //Email
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/colorNormalWhite"
             android:layout_below="@+id/cardView"
             android:layout_marginTop="10dp"
-            android:id="@+id/separator1"
+            android:id="@+id/separator12"
             />
-
-        //TTL
-        <TextView
-            android:layout_width="wrap_content"
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/TTL"
-            android:text="Tempat Tanggal Lahir"
-            android:layout_below="@+id/separator1"
-            android:layout_marginTop="10dp"
-            />
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/studentTTL"
-            android:text="Tangeb, 22 Januari 1995"
-            android:layout_below="@+id/TTL"
-            android:textSize="18dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/separator12"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/colorNormalWhite"
-            android:textColorHighlight="@color/colorNormalWhite"
-            android:textColorHint="@color/colorNormalWhite"
-            />
-        -->
-        //School
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/cardView"
-            android:layout_marginTop="7dp"
-            android:id="@+id/separator2"
-            />
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator2"
-            android:layout_marginTop="7dp"
-            android:id="@+id/layoutSchool">
+            android:layout_marginLeft="0dp"
+            android:id="@+id/layoutUsername">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Institusi Pendidikan Terakhir"
-                android:id="@+id/studentSchool"
-                android:text="SMA N 2 Mengwi"
-                android:textSize="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="0dp"
-                android:textColor="@color/colorNormalWhite"
-                android:textColorHighlight="@color/colorNormalWhite"
+                android:hint="Email"
+                android:id="@+id/editEmail"
+                android:inputType="textEmailAddress"
                 android:textColorHint="@color/colorNormalWhite"
-                />
-        </android.support.design.widget.TextInputLayout>
-
-        //Address
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutSchool"
-            android:layout_marginTop="7dp"
-            android:id="@+id/separator3"
-            />
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator3"
-            android:layout_marginTop="7dp"
-            android:id="@+id/layoutAddress">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Alamat"
-                android:id="@+id/studentAddress"
-                android:text="Lingkungan Cempaka Kapal No. 57"
-                android:textSize="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="0dp"
                 android:textColor="@color/colorNormalWhite"
-                android:textColorHighlight="@color/colorNormalWhite"
-                android:textColorHint="@color/colorNormalWhite"
-                />
-        </android.support.design.widget.TextInputLayout>
-
-        //Parent
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutAddress"
-            android:layout_marginTop="7dp"
-            android:id="@+id/separator4"
-            />
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator4"
-            android:layout_marginTop="7dp"
-            android:id="@+id/layoutParent">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Orang Tua / Wali"
-                android:id="@+id/studentParent"
-                android:text="I Wayan Darma"
-                android:textSize="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="0dp"
-                android:textColor="@color/colorNormalWhite"
-                android:textColorHighlight="@color/colorNormalWhite"
-                android:textColorHint="@color/colorNormalWhite"
-                />
+                android:textColorHighlight="@color/colorNormalWhite"/>
         </android.support.design.widget.TextInputLayout>
 
         //Phone
@@ -181,8 +85,121 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutParent"
-            android:layout_marginTop="7dp"
+            android:layout_below="@+id/layoutUsername"
+            android:layout_marginTop="10dp"
+            android:id="@+id/separator1"
+            />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/separator1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
+            android:id="@+id/layoutPhone">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="No. Telp"
+                android:id="@+id/studentPhone"
+                android:inputType="numberDecimal"
+                android:textColorHint="@color/colorNormalWhite"
+                android:textColor="@color/colorNormalWhite"
+                android:textColorHighlight="@color/colorNormalWhite" />
+        </android.support.design.widget.TextInputLayout>
+
+        //Education
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorNormalWhite"
+            android:layout_below="@+id/layoutPhone"
+            android:layout_marginTop="10dp"
+            android:id="@+id/separator2"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Pendidikan"
+            android:text="Tingkat Pendidikan"
+            android:layout_below="@+id/separator2"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/studentPendidikan"
+            android:text="SMA"
+            android:layout_below="@+id/Pendidikan"
+            android:textSize="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorNormalWhite"
+            />
+
+        //Tempat Lahir
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorNormalWhite"
+            android:layout_below="@+id/studentPendidikan"
+            android:layout_marginTop="10dp"
+            android:id="@+id/separator3"
+            />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/separator3"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
+            android:id="@+id/layoutTempatLahir">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tempat Lahir"
+                android:id="@+id/studentTempatLahir"
+                android:inputType="text"
+                android:textColorHint="@color/colorNormalWhite"
+                android:textColor="@color/colorNormalWhite"
+                android:textColorHighlight="@color/colorNormalWhite" />
+        </android.support.design.widget.TextInputLayout>
+
+        //TGL Lahir
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorNormalWhite"
+            android:layout_below="@+id/layoutTempatLahir"
+            android:layout_marginTop="10dp"
+            android:id="@+id/separator4"
+            />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/separator4"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
+            android:id="@+id/layoutTglLahir">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tanggal Lahir"
+                android:id="@+id/studentTglLahir"
+                android:inputType="date"
+                android:textColorHint="@color/colorNormalWhite"
+                android:textColor="@color/colorNormalWhite"
+                android:textColorHighlight="@color/colorNormalWhite" />
+        </android.support.design.widget.TextInputLayout>
+
+        //Wali
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorNormalWhite"
+            android:layout_below="@+id/layoutTglLahir"
+            android:layout_marginTop="10dp"
             android:id="@+id/separator5"
             />
         <android.support.design.widget.TextInputLayout
@@ -190,30 +207,27 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/separator5"
-            android:layout_marginTop="7dp"
-            android:id="@+id/layoutPhone">
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
+            android:id="@+id/layoutWali">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="No. Telp"
-                android:id="@+id/studentPhone"
-                android:text="085338328908"
-                android:textSize="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="0dp"
-                android:textColor="@color/colorNormalWhite"
-                android:textColorHighlight="@color/colorNormalWhite"
+                android:hint="Nama Orang Tua/Wali"
+                android:id="@+id/studentWali"
+                android:inputType="text"
                 android:textColorHint="@color/colorNormalWhite"
-                />
+                android:textColor="@color/colorNormalWhite"
+                android:textColorHighlight="@color/colorNormalWhite" />
         </android.support.design.widget.TextInputLayout>
 
-        //Email
+        //Address
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutPhone"
-            android:layout_marginTop="7dp"
+            android:layout_below="@+id/layoutWali"
+            android:layout_marginTop="10dp"
             android:id="@+id/separator6"
             />
         <android.support.design.widget.TextInputLayout
@@ -221,62 +235,55 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/separator6"
-            android:layout_marginTop="7dp"
-            android:id="@+id/layoutEmail">
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
+            android:id="@+id/layoutAddress">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
-                android:id="@+id/studentEmail"
-                android:text="bocah_linuxer@gmail.com"
-                android:inputType="textEmailAddress"
-                android:textSize="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="0dp"
-                android:textColor="@color/colorNormalWhite"
-                android:textColorHighlight="@color/colorNormalWhite"
+                android:hint="Alamat"
+                android:id="@+id/studentAddress"
+                android:inputType="text"
                 android:textColorHint="@color/colorNormalWhite"
-                />
+                android:textColor="@color/colorNormalWhite"
+                android:textColorHighlight="@color/colorNormalWhite" />
         </android.support.design.widget.TextInputLayout>
 
-        //Password
+        //Cabang
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutEmail"
+            android:layout_below="@+id/layoutAddress"
             android:layout_marginTop="7dp"
             android:id="@+id/separator7"
             />
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/Zona"
+            android:text="Zona Cabang"
             android:layout_below="@+id/separator7"
-            android:layout_marginTop="7dp"
-            android:id="@+id/layoutPassword">
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:id="@+id/studentPassword"
-                android:text="bocah_linuxer"
-                android:inputType="textPassword"
-                android:textSize="18dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="0dp"
-                android:textColor="@color/colorNormalWhite"
-                android:textColorHighlight="@color/colorNormalWhite"
-                android:textColorHint="@color/colorNormalWhite"
-                />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="15dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/studentZona"
+            android:text="Cabang Dalung"
+            android:layout_below="@+id/Zona"
+            android:textSize="18dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorNormalWhite"
+            />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnSave"
             android:text="Save"
-            android:layout_below="@+id/layoutPassword"
+            android:layout_below="@+id/studentZona"
             android:layout_centerHorizontal="true"
             android:background="@drawable/buttonround"
             android:layout_marginTop="15dp"
