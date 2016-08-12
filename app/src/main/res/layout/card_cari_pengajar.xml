@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/cvCariPengajar"
     android:background="@color/colorNormalWhite"
+    android:layout_marginBottom="10dp"
     app:cardBackgroundColor="@color/colorNormalWhite">
 
     <RelativeLayout
