@@ -51,7 +51,7 @@ public class MenuActivity extends AppCompatActivity {
         btnCariPengajar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenuActivity.this, CariPengajarActivity.class);
+                Intent i = new Intent(MenuActivity.this, ListMapelJadwalActivity.class);
                 startActivity(i);
             }
         });
