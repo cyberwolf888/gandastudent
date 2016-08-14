@@ -32,7 +32,7 @@ import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText studentName,editEmail,editPassword,studentPhone,studenTempatLahir,studentTglLahir,studentWali,studentAddress;
+    EditText studentName,editEmail,editPassword,studentPhone,studenTempatLahir,studentTglLahir,studentWali,studentAddress, studentKodePos;
     Spinner studentPendidikan,studentZone;
 
     DatePickerDialog tglLahir;
@@ -58,9 +58,10 @@ public class RegisterActivity extends AppCompatActivity {
         studentTglLahir = (EditText) findViewById(R.id.studentTglLahir);
         studentWali = (EditText) findViewById(R.id.studentWali);
         studentAddress = (EditText) findViewById(R.id.studentAddress);
+        studentKodePos = (EditText) findViewById(R.id.studentKodePos);
 
         studentPendidikan = (Spinner) findViewById(R.id.studentPendidikan);
-        studentZone = (Spinner) findViewById(R.id.studentZone);
+        //studentZone = (Spinner) findViewById(R.id.studentZone);
 
         buttonReg = (Button) findViewById(R.id.buttonReg);
 
@@ -72,9 +73,9 @@ public class RegisterActivity extends AppCompatActivity {
         dataAdapterTingkat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         studentPendidikan.setAdapter(dataAdapterTingkat);
 
-        dataAdapterZone = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listZone);
+        /*dataAdapterZone = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listZone);
         dataAdapterZone.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        studentZone.setAdapter(dataAdapterZone);
+        studentZone.setAdapter(dataAdapterZone);*/
 
         studentTglLahir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
             JsonObject jsonReq = new JsonObject();
             jsonReq.addProperty("register", true);
 
-            Ion.with(RegisterActivity.this)
+            /*Ion.with(RegisterActivity.this)
                     .load(url_cabang)
                     //.setLogging("ION_VERBOSE_LOGGING", Log.VERBOSE)
                     .setJsonObjectBody(jsonReq)
@@ -130,7 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
                             }
                         }
-                    });
+                    });*/
 
             Ion.with(RegisterActivity.this)
                     .load(url_tingkat)
@@ -189,6 +190,7 @@ public class RegisterActivity extends AppCompatActivity {
         studentTglLahir.setError(null);
         studentWali.setError(null);
         studentAddress.setError(null);
+        studentKodePos.setError(null);
 
         String nama = studentName.getText().toString();
         String email = editEmail.getText().toString();
@@ -199,10 +201,18 @@ public class RegisterActivity extends AppCompatActivity {
         String wali = studentWali.getText().toString();
         String alamat = studentAddress.getText().toString();
         String tingkat = studentPendidikan.getSelectedItem().toString();
-        String zona = studentZone.getSelectedItem().toString();
+        String kodePos = studentKodePos.getText().toString();
+        //String zona = studentZone.getSelectedItem().toString();
 
         boolean cancel = false;
         View focusView = null;
+
+        //validasi kode pos
+        if (TextUtils.isEmpty(kodePos)) {
+            studentKodePos.setError(getString(R.string.id_error_kode_pos_empty));
+            focusView = studentKodePos;
+            cancel = true;
+        }
 
         //validasi alamat
         if (TextUtils.isEmpty(alamat)) {
@@ -292,9 +302,9 @@ public class RegisterActivity extends AppCompatActivity {
             jsonReq.addProperty("tempat_lahir", tempat_lahir);
             jsonReq.addProperty("tgl_lahir", tgl_lahir);
             jsonReq.addProperty("wali", wali);
-            jsonReq.addProperty("alamat", alamat);
+            jsonReq.addProperty("alamat", alamat+","+kodePos);
             jsonReq.addProperty("tingkat", tingkat);
-            jsonReq.addProperty("zona", zona);
+            //jsonReq.addProperty("zona", zona);
             Log.d("Request",">"+jsonReq);
 
             if(isNetworkAvailable()){
@@ -313,7 +323,8 @@ public class RegisterActivity extends AppCompatActivity {
                                         Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                                         startActivity(i);
                                     }else{
-                                        Toast.makeText(getApplicationContext(), getString(R.string.id_error_register), Toast.LENGTH_LONG).show();
+                                        String error = result.get("error").toString();
+                                        Toast.makeText(getApplicationContext(), error, Toast.LENGTH_LONG).show();
                                     }
                                 }catch (Exception ex){
                                     Toast.makeText(getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
