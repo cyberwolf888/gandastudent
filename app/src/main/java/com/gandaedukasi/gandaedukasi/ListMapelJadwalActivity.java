@@ -1,10 +1,13 @@
 package com.gandaedukasi.gandaedukasi;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.content.IntentCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +49,13 @@ public class ListMapelJadwalActivity extends AppCompatActivity {
         super.onResume();
         getMapel();
     }
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(ListMapelJadwalActivity.this, MenuActivity.class);
+        ComponentName cn = i.getComponent();
+        Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
+        startActivity(mainIntent);
+    }
     public boolean isNetworkAvailable() {
         ConnectivityManager cm = (ConnectivityManager)
                 getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -63,8 +73,15 @@ public class ListMapelJadwalActivity extends AppCompatActivity {
             pDialog = new ProgressDialog(ListMapelJadwalActivity.this);
             pDialog.setMessage("Loading...");
             pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
+            pDialog.setCancelable(true);
             pDialog.show();
+            pDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    Toast.makeText(getApplicationContext(), "Proses dibatalkan!", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            });
 
             String url = new RequestServer().getServer_url()+"getMapelPelajar";
             Log.d("Login Url",">"+url);

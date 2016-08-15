@@ -33,7 +33,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Article feedItem = articles.get(getPosition());
+                    Article feedItem = articles.get(getAdapterPosition());
                     Log.d("Item Clicked", "Element " + feedItem.title + " clicked.");
                     Toast.makeText(mContext, "Element " + feedItem.id_article + " clicked.", Toast.LENGTH_LONG).show();
                 }

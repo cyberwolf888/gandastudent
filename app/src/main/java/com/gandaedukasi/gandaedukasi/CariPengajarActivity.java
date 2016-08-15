@@ -2,6 +2,7 @@ package com.gandaedukasi.gandaedukasi;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -53,13 +54,27 @@ public class CariPengajarActivity extends AppCompatActivity {
         getData();
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(CariPengajarActivity.this, ListMapelJadwalActivity.class);
+        startActivity(i);
+        finish();
+    }
+
     private void getData(){
         if(isNetworkAvailable()){
             pDialog = new ProgressDialog(CariPengajarActivity.this);
             pDialog.setMessage("Loading...");
             pDialog.setIndeterminate(false);
-            pDialog.setCancelable(false);
+            pDialog.setCancelable(true);
             pDialog.show();
+            pDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    Toast.makeText(getApplicationContext(), "Proses dibatalkan!", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            });
 
             cariPengajars = new ArrayList<>();
             data = new JsonArray();
@@ -82,17 +97,17 @@ public class CariPengajarActivity extends AppCompatActivity {
                                     data = result.getAsJsonArray("data");
                                     for (int i=0; i<data.size(); i++){
                                         JsonObject objData = data.get(i).getAsJsonObject();
+                                        String photo="";
+                                        if(!objData.get("photo").isJsonNull()){
+                                            photo = objData.get("photo").getAsString();
+                                        }
                                         cariPengajars.add(new CariPengajar(
-                                                objData.get("jadwal_id").getAsString(),
                                                 objData.get("pengajar_id").getAsString(),
                                                 objData.get("mapel_id").getAsString(),
                                                 objData.get("nama_pengajar").getAsString(),
                                                 objData.get("label_mapel").getAsString(),
-                                                objData.get("label_hari").getAsString(),
-                                                objData.get("waktu_mulai").getAsString(),
-                                                objData.get("waktu_selesai").getAsString(),
                                                 objData.get("label_tempat").getAsString(),
-                                                objData.get("photo").getAsString()
+                                                photo
                                         ));
                                     }
                                     mAdapter = new CariPengajarAdapter(CariPengajarActivity.this, cariPengajars);

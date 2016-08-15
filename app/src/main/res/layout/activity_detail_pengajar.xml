@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/latar"
@@ -19,19 +20,18 @@
             android:id="@+id/cardView"
             android:background="@color/cardview_light_background"
             >
-            <de.hdodenhof.circleimageview.CircleImageView
+            <com.makeramen.roundedimageview.RoundedImageView
+                app:riv_oval="true"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/guest"
                 android:id="@+id/teacherPhoto"
-                android:layout_marginTop="5dp"
-                />
+                android:layout_marginTop="5dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/teacherName"
-                android:text="I Nyoman Swantara"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:layout_gravity="center_horizontal"
@@ -62,7 +62,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/teacherPhone"
-            android:text="085338328908"
             android:layout_below="@+id/Phone"
             android:textSize="18dp"
             android:layout_marginTop="5dp"
@@ -229,5 +228,18 @@
             android:layout_below="@+id/teacherZone"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonSubmit"
+            android:text="Pilih Pengajar"
+            android:layout_below="@+id/ratingBar"
+            android:layout_centerHorizontal="true"
+            android:textSize="18dp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/buttonround"
+            android:layout_marginTop="30dp"
+            android:gravity="center" />
     </RelativeLayout>
 </ScrollView>
