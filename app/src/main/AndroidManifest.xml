@@ -40,7 +40,9 @@
         <activity android:name=".GandaKidsActivity" />
         <activity android:name=".KidsAssignSchActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".ListMapelJadwalActivity"></activity>
+        <activity android:name=".ListMapelJadwalActivity" />
+        <activity android:name=".PilihPaketctivity" />
+        <activity android:name=".BuatJadwalActivity"></activity>
     </application>
 
 </manifest>

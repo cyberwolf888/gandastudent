@@ -9,6 +9,8 @@ import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,7 @@ public class DetailPengajarActivity extends AppCompatActivity {
     ProgressDialog pDialog;
     TextView teacherName, teacherPhone, teacherEdu, teacherAddress, teacherLecture, teacherLevel, teacherZone;
     ImageView teacherPhoto;
+    Button buttonSubmit;
     JsonObject data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,17 @@ public class DetailPengajarActivity extends AppCompatActivity {
         teacherLevel = (TextView) findViewById(R.id.teacherLevel);
         teacherZone = (TextView) findViewById(R.id.teacherZone);
         teacherPhoto = (ImageView) findViewById(R.id.teacherPhoto);
+        buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
+
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailPengajarActivity.this,PilihPaketctivity.class);
+                i.putExtra("pengajar_id",pengajar_id);
+                i.putExtra("mapel_id",mapel_id);
+                startActivity(i);
+            }
+        });
     }
 
     @Override

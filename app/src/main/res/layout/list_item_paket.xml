@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_mapel_jadwal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/nama_paket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColorHint="@color/colorNormalWhite"
+        android:textColor="@color/colorNormalWhite"
+        android:textColorHighlight="@color/colorNormalWhite"
+    />
+
+    <TextView
+        android:id="@+id/durasi_paket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColorHint="@color/colorNormalWhite"
+        android:textColor="@color/colorNormalWhite"
+        android:textColorHighlight="@color/colorNormalWhite"
+        />
+    <TextView
+        android:id="@+id/jml_pertemuan_paket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textColorHint="@color/colorNormalWhite"
+        android:textColor="@color/colorNormalWhite"
+        android:textColorHighlight="@color/colorNormalWhite"
+        />
+    <TextView
+        android:id="@+id/harga_paket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:textColorHint="@color/colorNormalWhite"
+        android:textColor="@color/colorNormalWhite"
+        android:textColorHighlight="@color/colorNormalWhite"
+        />
+
+</LinearLayout>
