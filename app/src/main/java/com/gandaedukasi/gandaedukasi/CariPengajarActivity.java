@@ -79,11 +79,11 @@ public class CariPengajarActivity extends AppCompatActivity {
             cariPengajars = new ArrayList<>();
             data = new JsonArray();
             String url = new RequestServer().getServer_url() + "getJadwalByMapel";
-
+            Log.d("test url",url);
             JsonObject jsonReq = new JsonObject();
             jsonReq.addProperty("user_id", session.getUserId());
             jsonReq.addProperty("mapel_id", mapel_id);
-
+            Log.d("test request",jsonReq.toString());
             Ion.with(CariPengajarActivity.this)
                     .load(url)
                     .setJsonObjectBody(jsonReq)
