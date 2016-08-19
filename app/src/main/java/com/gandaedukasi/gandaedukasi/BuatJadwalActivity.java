@@ -56,7 +56,7 @@ public class BuatJadwalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_buat_jadwal);
 
         li = (LinearLayout) findViewById(R.id.linierLayout);
-
+        String alamat = session.getUserAlamat();
         for (int i=0; i<Integer.valueOf(jumlah_pertemuan); i++){
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
             params.setMargins(0, 0, 0, 3);
@@ -100,6 +100,18 @@ public class BuatJadwalActivity extends AppCompatActivity {
                 }
             });
 
+            TextInputLayout til3 = new TextInputLayout(BuatJadwalActivity.this);
+            til3.setLayoutParams(params2);
+            til3.setHint("Tempat Pertemuan "+String.valueOf(i+1));
+            li.addView(til3);
+
+            final EditText etTempatPertemuan = new EditText(BuatJadwalActivity.this);
+            etTempatPertemuan.setLayoutParams(params);
+            etTempatPertemuan.setId(50+i);
+            etTempatPertemuan.setText(alamat);
+            etTempatPertemuan.setInputType(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE);
+            til3.addView(etTempatPertemuan);
+
         }
 
         LinearLayout.LayoutParams params3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
@@ -132,6 +144,7 @@ public class BuatJadwalActivity extends AppCompatActivity {
         for (int i=0; i<Integer.valueOf(jumlah_pertemuan); i++){
             EditText etTglPertemuan = (EditText) findViewById(30+i);
             EditText etWaktuPertemuan = (EditText) findViewById(40+i);
+            EditText etTempatPertemuan = (EditText) findViewById(50+i);
 
             etTglPertemuan.setError(null);
             etWaktuPertemuan.setError(null);
@@ -146,8 +159,14 @@ public class BuatJadwalActivity extends AppCompatActivity {
                 focusView = etWaktuPertemuan;
                 cancel = true;
             }
+            if (TextUtils.isEmpty(etTempatPertemuan.getText().toString())) {
+                etTempatPertemuan.setError("Tempat pertemuan tidak boleh kosong!");
+                focusView = etTempatPertemuan;
+                cancel = true;
+            }
             jsonReq.addProperty("tgl_pertemuan"+i, etTglPertemuan.getText().toString());
             jsonReq.addProperty("waktu_pertemuan"+i, etWaktuPertemuan.getText().toString());
+            jsonReq.addProperty("tempat_pertemuan"+i, etTempatPertemuan.getText().toString());
         }
         Log.d("Request",">"+jsonReq);
         if (cancel) {
@@ -171,7 +190,7 @@ public class BuatJadwalActivity extends AppCompatActivity {
                         .setCallback(new FutureCallback<JsonObject>() {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
-                                Log.d("Response",result.toString());
+                                Log.d("Response",">"+result);
                                 try{
                                     String status = result.get("status").toString();
                                     if (status.equals("1")){

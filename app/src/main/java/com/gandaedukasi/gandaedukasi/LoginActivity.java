@@ -123,7 +123,7 @@ public class LoginActivity extends AppCompatActivity {
                                         if(!data.get("photo").isJsonNull()){
                                             photo = data.get("photo").getAsString();
                                         }
-                                        session.createLoginSession(data.get("user_id").getAsString(),data.get("fullname").getAsString(),photo);
+                                        session.createLoginSession(data.get("user_id").getAsString(),data.get("fullname").getAsString(),photo,data.get("alamat").getAsString());
                                         Intent i = new Intent(LoginActivity.this, MenuActivity.class);
                                         startActivity(i);
                                         finish();

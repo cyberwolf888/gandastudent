@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         }
-        Log.d("FULLNAME",session.getFullname());
+        Log.d("FULLNAME",session.getUserAlamat());
         setContentView(R.layout.activity_menu);
 
         ImageView btnProgramEdukasi, btnPembayaran, btnCariPengajar, btnJadwalLes, btnProfile, btnPertemuan;
