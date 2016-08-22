@@ -42,7 +42,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ListMapelJadwalActivity" />
         <activity android:name=".PilihPaketctivity" />
-        <activity android:name=".BuatJadwalActivity"></activity>
+        <activity android:name=".BuatJadwalActivity" />
+        <activity android:name=".DetailJadwalActivity" />
+        <activity android:name=".DetailProgramEdukasiActivity"></activity>
     </application>
 
 </manifest>

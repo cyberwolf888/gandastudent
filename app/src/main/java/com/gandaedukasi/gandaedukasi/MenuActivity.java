@@ -58,7 +58,7 @@ public class MenuActivity extends AppCompatActivity {
         btnJadwalLes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenuActivity.this, ProgramEdukasiActivity.class);
+                Intent i = new Intent(MenuActivity.this, JadwalActivity.class);
                 startActivity(i);
             }
         });
@@ -72,7 +72,7 @@ public class MenuActivity extends AppCompatActivity {
         btnPertemuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MenuActivity.this, ProgramEdukasiActivity.class);
+                Intent i = new Intent(MenuActivity.this, PertemuanActivity.class);
                 startActivity(i);
             }
         });
