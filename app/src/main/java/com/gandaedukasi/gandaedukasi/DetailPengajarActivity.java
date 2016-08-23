@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class DetailPengajarActivity extends AppCompatActivity {
     ProgressDialog pDialog;
     TextView teacherName, teacherPhone, teacherEdu, teacherAddress, teacherLecture, teacherLevel, teacherZone;
     ImageView teacherPhoto;
+    RatingBar ratingBar;
     Button buttonSubmit;
     JsonObject data;
     @Override
@@ -45,6 +47,7 @@ public class DetailPengajarActivity extends AppCompatActivity {
         teacherLevel = (TextView) findViewById(R.id.teacherLevel);
         teacherZone = (TextView) findViewById(R.id.teacherZone);
         teacherPhoto = (ImageView) findViewById(R.id.teacherPhoto);
+        ratingBar = (RatingBar) findViewById(R.id.ratingBar);
         buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +117,7 @@ public class DetailPengajarActivity extends AppCompatActivity {
                                     teacherLecture.setText(data.get("lecture").getAsString());
                                     teacherLevel.setText(data.get("jenjang_mengajar").getAsString());
                                     teacherZone.setText(data.get("label_cabang").getAsString());
+                                    ratingBar.setRating(data.get("rating").getAsFloat());
                                     if(!data.get("photo").isJsonNull()){
                                         Ion.with(DetailPengajarActivity.this)
                                                 .load(new RequestServer().getPhotoUrl()+"/pengajar/"+data.get("photo").getAsString())

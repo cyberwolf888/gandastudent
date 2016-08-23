@@ -6,11 +6,11 @@ package com.gandaedukasi.gandaedukasi.models;
 
 public class History {
     public String jadwal_id, detail_jadwal_id, nama_siswa, no_telp, photo,
-            label_mapel, label_tanggal, label_waktu, label_tempat, pertemuan, keterangan, kelebihan_jam, durasi;
+            label_mapel, label_tanggal, label_waktu, label_tempat, pertemuan, keterangan, kelebihan_jam, durasi, biaya;
 
     public History(String jadwal_id, String detail_jadwal_id, String nama_siswa,
                    String no_telp, String photo, String label_mapel, String label_tanggal,
-                   String label_waktu, String label_tempat, String pertemuan, String keterangan, String kelebihan_jam, String durasi){
+                   String label_waktu, String label_tempat, String pertemuan, String keterangan, String kelebihan_jam, String durasi, String biaya){
         this.jadwal_id = jadwal_id;
         this.detail_jadwal_id = detail_jadwal_id;
         this.nama_siswa = nama_siswa;
@@ -24,5 +24,6 @@ public class History {
         this.keterangan = keterangan;
         this.kelebihan_jam = kelebihan_jam;
         this.durasi = durasi;
+        this.biaya = biaya;
     }
 }

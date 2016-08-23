@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".DetailPengajarActivity">
+    tools:context=".RatingActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,41 +69,12 @@
             android:textColor="@color/colorNormalWhite"
             />
 
-        //Education
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/teacherPhone"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator2"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Edu"
-            android:text="Pendidikan Terakhir"
-            android:layout_below="@+id/separator2"
-            android:layout_marginTop="10dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/teacherEdu"
-            android:text="Sarjana Komputer"
-            android:layout_below="@+id/Edu"
-            android:textSize="18dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/colorNormalWhite"
-            />
-
         //Address
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/teacherEdu"
+            android:layout_below="@+id/teacherPhone"
             android:layout_marginTop="10dp"
             android:id="@+id/separator3"
             />
@@ -156,68 +127,12 @@
             android:textColor="@color/colorNormalWhite"
             />
 
-        //Level
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/colorNormalWhite"
             android:layout_below="@+id/teacherLecture"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator5"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Level"
-            android:text="Jenjang Ajar"
-            android:layout_below="@+id/separator5"
-            android:layout_marginTop="10dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/teacherLevel"
-            android:text="SD, SMP"
-            android:layout_below="@+id/Level"
-            android:textSize="18dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/colorNormalWhite"
-            />
-
-        //Zone
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/teacherLevel"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator6"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/Zone"
-            android:text="Zona Cabang"
-            android:layout_below="@+id/separator6"
-            android:layout_marginTop="10dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/teacherZone"
-            android:text="Subita"
-            android:layout_below="@+id/Zone"
-            android:textSize="18dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/colorNormalWhite"
-            />
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/teacherZone"
             android:layout_marginTop="10dp"
             android:id="@+id/separator7"
             />
@@ -225,12 +140,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ratingBar"
-            android:layout_below="@+id/teacherZone"
+            android:layout_below="@+id/separator7"
             android:layout_centerHorizontal="true"
-            android:clickable="false"
-            android:focusableInTouchMode="false"
-            android:focusable="false"
-            android:isIndicator="true"
             android:layout_marginTop="25dp"
             android:theme="@style/RatingBar"/>
 
@@ -238,7 +149,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonSubmit"
-            android:text="Pilih Pengajar"
+            android:text="Rate Pengajar"
             android:layout_below="@+id/ratingBar"
             android:layout_centerHorizontal="true"
             android:textSize="18dp"

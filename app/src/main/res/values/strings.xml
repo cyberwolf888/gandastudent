@@ -50,5 +50,9 @@
     <string name="en_error_wali_empty">Parrent name cannot be empty!</string>
     <string name="en_error_tgl_lahir_empty">Date of birth cannot be empty!</string>
     <string name="en_error_tempat_lahir">Place of birth cannot be empty!</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- End -->
 </resources>

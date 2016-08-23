@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class DetailPertemuanActivity extends AppCompatActivity {
-    private String jadwal_id, detail_jadwal_id, nama_siswa, no_telp, photo, label_mapel, label_tanggal, label_waktu, label_tempat, pertemuan, keterangan, kelebihan_jam, durasi;
+    private String jadwal_id, detail_jadwal_id, nama_siswa, no_telp, photo, label_mapel, label_tanggal, label_waktu, label_tempat, pertemuan, keterangan, kelebihan_jam, durasi, biaya;
     TextView lectureName, studentTime, studentPlace, studentPertemuan, teacherMessages, additionalDuration, additionalFee;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class DetailPertemuanActivity extends AppCompatActivity {
         keterangan = getIntent().getStringExtra("keterangan");
         kelebihan_jam = getIntent().getStringExtra("kelebihan_jam");
         durasi = getIntent().getStringExtra("durasi");
+        biaya = getIntent().getStringExtra("biaya");
 
         setContentView(R.layout.activity_detail_pertemuan);
 
@@ -40,7 +41,7 @@ public class DetailPertemuanActivity extends AppCompatActivity {
         studentPertemuan.setText(pertemuan);
         teacherMessages.setText(keterangan);
         additionalDuration.setText(durasi);
-        //additionalFee.setText(label_mapel);
+        additionalFee.setText(biaya);
     }
 
     @Override

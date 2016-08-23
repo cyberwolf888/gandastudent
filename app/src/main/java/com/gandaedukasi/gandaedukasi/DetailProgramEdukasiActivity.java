@@ -35,5 +35,4 @@ public class DetailProgramEdukasiActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
-
 }

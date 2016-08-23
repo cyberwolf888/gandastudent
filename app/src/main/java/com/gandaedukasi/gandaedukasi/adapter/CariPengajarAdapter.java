@@ -80,7 +80,7 @@ public class CariPengajarAdapter extends RecyclerView.Adapter<CariPengajarAdapte
             Ion.with(mContext)
                     .load(items.get(i).photo)
                     .withBitmap()
-                    .placeholder(R.drawable.logo)
+                    .placeholder(R.drawable.guest)
                     .error(R.drawable.guest)
                     .intoImageView(cariPengajarViewHolder.imageTeacher);
         }

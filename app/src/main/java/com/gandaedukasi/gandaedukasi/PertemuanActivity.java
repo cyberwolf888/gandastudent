@@ -112,7 +112,8 @@ public class PertemuanActivity extends AppCompatActivity {
                                                 objData.get("pertemuan").getAsString(),
                                                 objData.get("keterangan").getAsString(),
                                                 objData.get("tambahan_jam").getAsString(),
-                                                objData.get("durasi").getAsString()
+                                                objData.get("durasi").getAsString(),
+                                                objData.get("biaya").getAsString()
                                         ));
                                     }
                                     Log.d("histories",">"+histories.size());

@@ -38,8 +38,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         session = new Session(MainActivity.this);
         if(session.isLoggedIn()){
-            Intent i = new Intent(MainActivity.this, MenuActivity.class);
+            /*Intent i = new Intent(MainActivity.this, MenuActivity.class);
             startActivity(i);
+            finish();*/
         }
         setContentView(R.layout.activity_main);
 

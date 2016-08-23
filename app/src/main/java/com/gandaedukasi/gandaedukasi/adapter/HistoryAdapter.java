@@ -64,6 +64,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
                     i.putExtra("keterangan",feedItem.keterangan);
                     i.putExtra("kelebihan_jam",feedItem.kelebihan_jam);
                     i.putExtra("durasi",feedItem.durasi);
+                    i.putExtra("biaya",feedItem.biaya);
                     mContext.startActivity(i);
                 }
             });

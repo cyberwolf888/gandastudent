@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorTextButton">#009bb3</color>
     <color name="colorNormalWhite">#ffffff</color>
+    <color name="duskYellow">#ffb100</color>
+    <color name="lightGrey">#eff0f1</color>
+    <color name="black_overlay">#66000000</color>
 </resources>
