@@ -1,68 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_detail_payment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/latar"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.gandaedukasi.gandaedukasi.PaymentActivity">
+    android:padding="10dp"
+    tools:context="com.gandaedukasi.gandaedukasi.DetailPaymentActivity">
 
-    <RelativeLayout
-        android:id="@+id/main_layout"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvTitle"
+        android:text="Ganda Kids"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="22dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keterangan"
+        android:id="@+id/tvKeterangan"
+        android:textColor="@color/colorNormalWhite"
+        android:layout_below="@+id/tvTitle"
+        android:textSize="18dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No. "
+        android:id="@+id/tvPaymentNo"
+        android:textColor="@color/colorNormalWhite"
+        android:layout_below="@+id/tvKeterangan"
+        android:textSize="18dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="400000"
+        android:id="@+id/tvCost"
+        android:textColor="@color/colorNormalWhite"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="21dp"
+        android:textSize="18dp"
+        />
+    <LinearLayout
+        android:id="@+id/layout_button"
+        android:orientation="vertical"
         android:visibility="gone"
+        android:layout_below="@+id/tvPaymentNo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <android.support.v7.widget.RecyclerView
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:id="@+id/rvPayment"
-            >
-        </android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content">
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="@color/colorNormalWhite"
+            android:layout_below="@+id/tvPaymentNo"
             android:layout_marginTop="10dp"
-            android:id="@+id/separator"
-            android:layout_below="@+id/rvPayment"
+            android:id="@+id/separator2"
             />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/total"
-            android:text="Total"
-            android:layout_below="@+id/separator"
-            android:layout_marginTop="7dp"
-            android:textSize="22dp"
-            android:textColor="@color/colorNormalWhite"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rp. 5000000"
-            android:id="@+id/tvTotal"
-            android:textColor="@color/colorNormalWhite"
-            android:textSize="18dp"
-            android:layout_above="@+id/separator2"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
-        <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/colorNormalWhite"
-        android:layout_below="@+id/total"
-        android:layout_marginTop="10dp"
-        android:id="@+id/separator2"
-        />
-        <!--
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/pembayaran"
             android:text="Metode Pembayaran"
@@ -70,7 +72,7 @@
             android:layout_below="@+id/separator2"
             android:textSize="18dp"
             android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
             android:textStyle="bold"
             />
         <Button
@@ -84,12 +86,12 @@
             android:textColor="@color/colorTextButton"
             />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/atau"
             android:layout_below="@id/btnCash"
             android:text="atau"
-            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
             android:textStyle="italic"
             android:textColor="@color/colorNormalWhite"
             android:textSize="18dp"
@@ -112,7 +114,7 @@
             android:layout_marginTop="10dp"
             android:id="@+id/separator3"
             />
-        -->
+    </LinearLayout>
 
-    </RelativeLayout>
-</ScrollView>
+
+</RelativeLayout>

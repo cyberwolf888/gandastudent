@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cvPayment"
+    android:layout_marginTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/colorTextButton"
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:id="@+id/arrowDetail"
+            android:src="@drawable/arrow_detail"
+            android:layout_marginTop="9dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTitle"
+            android:text="Ganda Kids"
+            android:textColor="@color/colorNormalWhite"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keterangan"
+            android:id="@+id/tvKeterangan"
+            android:textColor="@color/colorNormalWhite"
+            android:layout_below="@+id/tvTitle"
+            android:textSize="18dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No. "
+            android:id="@+id/tvPaymentNo"
+            android:textColor="@color/colorNormalWhite"
+            android:layout_below="@+id/tvKeterangan"
+            android:textSize="18dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="400000"
+            android:id="@+id/tvCost"
+            android:textColor="@color/colorNormalWhite"
+            android:layout_toLeftOf="@+id/arrowDetail"
+            android:layout_marginTop="21dp"
+            android:textSize="18dp"
+            />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

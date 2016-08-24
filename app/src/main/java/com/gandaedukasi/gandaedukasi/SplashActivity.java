@@ -85,16 +85,14 @@ public class SplashActivity extends AppCompatActivity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
-        //delayedHide(100);
-        if(session.isLoggedIn()){
-            Intent i = new Intent(SplashActivity.this, MenuActivity.class);
-            startActivity(i);
-            finish();
-        }else{
-            Intent i = new Intent(SplashActivity.this, MainActivity.class);
-            startActivity(i);
-            finish();
-        }
+        delayedHide(300);
+
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
     }
 
     /**
@@ -180,7 +178,16 @@ public class SplashActivity extends AppCompatActivity {
     private final Runnable mHideRunnable = new Runnable() {
         @Override
         public void run() {
-            hide();
+            //hide();
+            if(session.isLoggedIn()){
+                Intent i = new Intent(SplashActivity.this, MenuActivity.class);
+                startActivity(i);
+                finish();
+            }else{
+                Intent i = new Intent(SplashActivity.this, MainActivity.class);
+                startActivity(i);
+                finish();
+            }
         }
     };
 

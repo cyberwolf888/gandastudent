@@ -16,7 +16,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:label="Login" />
@@ -68,7 +68,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RatingActivity"></activity>
+        <activity android:name=".RatingActivity" />
+        <activity android:name=".PembayaranCashActivity" />
+        <activity android:name=".PembayaranTransferActivity" />
+        <activity android:name=".DetailPaymentActivity" />
+        <activity android:name=".DetailArticleActivity"></activity>
     </application>
 
 </manifest>

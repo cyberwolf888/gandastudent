@@ -1,6 +1,11 @@
 package com.gandaedukasi.gandaedukasi.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gandaedukasi.gandaedukasi.DetailArticleActivity;
 import com.gandaedukasi.gandaedukasi.R;
 import com.gandaedukasi.gandaedukasi.models.Article;
 import com.koushikdutta.ion.Ion;
@@ -35,7 +41,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
                 public void onClick(View v) {
                     Article feedItem = articles.get(getAdapterPosition());
                     Log.d("Item Clicked", "Element " + feedItem.title + " clicked.");
-                    Toast.makeText(mContext, "Element " + feedItem.id_article + " clicked.", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(mContext, "Element " + feedItem.id_article + " clicked.", Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(mContext, DetailArticleActivity.class);
+                    i.putExtra("id_article", feedItem.id_article);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    mContext.startActivity(i);
+
                 }
             });
             cv = (CardView)itemView.findViewById(R.id.cvArticle);
@@ -47,9 +58,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
 
     List<Article> articles;
     private Context mContext;
-    public ArticleAdapter(Context context, List<Article> articles){
+    FragmentTransaction fragmentTransaction;
+    public ArticleAdapter(Context context, List<Article> articles, FragmentTransaction fragmentTransaction){
         this.articles = articles;
         this.mContext = context;
+        this.fragmentTransaction = fragmentTransaction;
     }
 
     @Override

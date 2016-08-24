@@ -120,6 +120,7 @@ public class CariPengajarActivity extends AppCompatActivity {
                             }catch (Exception ex){
                                 Log.d("error",">"+ex);
                                 Toast.makeText(getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
+                                finish();
                             }
                             pDialog.dismiss();
                         }
@@ -127,6 +128,7 @@ public class CariPengajarActivity extends AppCompatActivity {
 
         }else{
             Toast.makeText(getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
+            finish();
         }
     }
     public boolean isNetworkAvailable() {

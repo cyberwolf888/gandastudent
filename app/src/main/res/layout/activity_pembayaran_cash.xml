@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pembayaran_cash"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/latar"
+    tools:context="com.gandaedukasi.gandaedukasi.PembayaranCashActivity">
+
+    <TextView
+        android:text="Silahkan lakukan pembayaran pada cabang terdekat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvInfo"
+        tools:text="Silahkan lakukan pembayaran pada cabang terdekat"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorNormalWhite" />
+</LinearLayout>

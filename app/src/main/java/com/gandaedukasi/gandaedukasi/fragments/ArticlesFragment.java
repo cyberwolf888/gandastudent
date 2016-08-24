@@ -75,7 +75,8 @@ public class ArticlesFragment extends Fragment {
                                 if (status.equals("1")) {
                                     initializeData(result.getAsJsonArray("data"));
                                     //articles.add(new Article("4", "Emma Wilson", "23 years old", "http://gandaedukasi.esy.es/images/article/image1.png"));
-                                    mAdapter = new ArticleAdapter(getActivity().getApplicationContext(), articles);
+
+                                    mAdapter = new ArticleAdapter(getActivity().getApplicationContext(), articles, getActivity().getSupportFragmentManager().beginTransaction());
                                     mRecyclerView.setAdapter(mAdapter);
                                     mRecyclerView.setLayoutManager(mLayoutManager);
                                 } else {
