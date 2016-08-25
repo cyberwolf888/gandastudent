@@ -99,7 +99,17 @@ public class ArticlesFragment extends Fragment {
         for (int i=0; i<result.size(); i++){
             JsonObject objData = result.get(i).getAsJsonObject();
             //Log.d("Response objData",">"+objData.get("judul").getAsString());
-            articles.add(new Article(objData.get("id").getAsString(),objData.get("judul").getAsString(), objData.get("created_at").getAsString(), objData.get("cover").getAsString()));
+            String cover = "";
+            if(!objData.get("cover").isJsonNull()){
+                cover = objData.get("cover").getAsString();
+            }
+            articles.add(new Article(
+                    objData.get("id").getAsString(),
+                    objData.get("judul").getAsString(),
+                    objData.get("content").getAsString(),
+                    cover,
+                    objData.get("created_at").getAsString()
+            ));
         }
 
     }

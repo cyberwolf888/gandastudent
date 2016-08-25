@@ -10,7 +10,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.gandaedukasi.gandaedukasi.utility.RequestServer;
 import com.gandaedukasi.gandaedukasi.utility.Session;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 import com.onesignal.OneSignal;
 
 /**
@@ -43,18 +47,34 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        session = new Session(SplashActivity.this);
         //OneSignal.setLogLevel(OneSignal.LOG_LEVEL.DEBUG, OneSignal.LOG_LEVEL.DEBUG);
         OneSignal.startInit(this).init();
         OneSignal.idsAvailable(new OneSignal.IdsAvailableHandler() {
             @Override
             public void idsAvailable(String userId, String registrationId) {
                 Log.d("Onesignal debug", "User:" + userId);
-                if (registrationId != null)
+                if (registrationId != null){
                     Log.d("Onesignal debug", "registrationId:" + registrationId);
+                    if(session.isLoggedIn()){
+                        String url = new RequestServer().getServer_url()+"createNotif";
+                        Ion.with(SplashActivity.this)
+                                .load(url)
+                                .setMultipartParameter("user_id", session.getUserId())
+                                .setMultipartParameter("onesignal_id", userId)
+                                .asJsonObject()
+                                .setCallback(new FutureCallback<JsonObject>() {
+                                    @Override
+                                    public void onCompleted(Exception e, JsonObject result) {
+
+                                    }
+                                });
+                    }
+
+                }
+
             }
         });
-        session = new Session(SplashActivity.this);
-
         setContentView(R.layout.activity_splash);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -62,7 +82,12 @@ public class SplashActivity extends AppCompatActivity {
         mVisible = false;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
-
+        mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +110,7 @@ public class SplashActivity extends AppCompatActivity {
         // Trigger the initial hide() shortly after the activity has been
         // created, to briefly hint to the user that UI controls
         // are available.
+
         delayedHide(300);
 
     }

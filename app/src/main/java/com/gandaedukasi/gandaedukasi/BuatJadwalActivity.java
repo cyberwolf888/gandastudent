@@ -217,7 +217,8 @@ public class BuatJadwalActivity extends AppCompatActivity {
         }
     }
     private void setDateField(final EditText et) {
-        Calendar newCalendar = Calendar.getInstance();
+        final Calendar newCalendar = Calendar.getInstance();
+        newCalendar.set(newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH)+7);
         tgl_pertemuan = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -225,7 +226,12 @@ public class BuatJadwalActivity extends AppCompatActivity {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, monthOfYear, dayOfMonth);
                 String formatted = formater.format(newDate.getTime());
-                et.setText(formatted);
+                if(newDate.after(newCalendar)){
+                    et.setText(formatted);
+                }else{
+                    Toast.makeText(getApplicationContext(), "Pertemuan minimal 7 hari kedepan", Toast.LENGTH_LONG).show();
+                }
+
             }
         },newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }

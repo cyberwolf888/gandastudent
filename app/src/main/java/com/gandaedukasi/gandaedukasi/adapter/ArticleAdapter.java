@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.gandaedukasi.gandaedukasi.DetailArticleActivity;
 import com.gandaedukasi.gandaedukasi.R;
 import com.gandaedukasi.gandaedukasi.models.Article;
+import com.gandaedukasi.gandaedukasi.utility.RequestServer;
 import com.koushikdutta.ion.Ion;
 
 import java.util.List;
@@ -44,6 +45,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
                     //Toast.makeText(mContext, "Element " + feedItem.id_article + " clicked.", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(mContext, DetailArticleActivity.class);
                     i.putExtra("id_article", feedItem.id_article);
+                    i.putExtra("title", feedItem.title);
+                    i.putExtra("content", feedItem.content);
+                    i.putExtra("cover", feedItem.cover);
                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(i);
 
@@ -79,14 +83,18 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
 
     @Override
     public void onBindViewHolder(ArticleViewHolder articleViewHolder, int i) {
-        Ion.with(mContext)
-                .load(articles.get(i).cover)
-                .withBitmap()
-                .placeholder(R.drawable.logo)
-                .error(R.drawable.not_available)
-                .intoImageView(articleViewHolder.articleImage);
+        if(!articles.get(i).cover.equals("")){
+            Log.d("iamge cover",new RequestServer().getImages_url()+"article/"+articles.get(i).cover);
+            Ion.with(mContext)
+                    .load(new RequestServer().getImages_url()+"article/"+articles.get(i).cover)
+                    .withBitmap()
+                    .placeholder(R.drawable.logo)
+                    .error(R.drawable.logo)
+                    .intoImageView(articleViewHolder.articleImage);
+        }
+
         articleViewHolder.articleTitle.setText(articles.get(i).title);
-        articleViewHolder.articleDescription.setText(articles.get(i).content);
+        articleViewHolder.articleDescription.setText(articles.get(i).created_at);
         //articleViewHolder.articleImage.setImageResource(R.drawable.logo);
     }
 

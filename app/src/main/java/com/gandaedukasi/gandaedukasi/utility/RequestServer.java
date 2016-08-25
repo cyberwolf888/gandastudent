@@ -15,5 +15,8 @@ public class RequestServer {
     public String getPhotoUrl(){
         return this.images_url+"photo/";
     }
+    public String getImages_url(){
+        return this.images_url;
+    }
 
 }

@@ -21,6 +21,8 @@ import com.gandaedukasi.gandaedukasi.fragments.HomeFragment;
 import com.gandaedukasi.gandaedukasi.fragments.MenuFragment;
 import com.gandaedukasi.gandaedukasi.utility.RequestServer;
 import com.gandaedukasi.gandaedukasi.utility.Session;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
 public class MainActivity extends AppCompatActivity
@@ -126,6 +128,17 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         }
         else if (id == R.id.nav_logout){
+            String url = new RequestServer().getServer_url()+"deleteNotif";
+            Ion.with(MainActivity.this)
+                    .load(url)
+                    .setMultipartParameter("user_id", session.getUserId())
+                    .asJsonObject()
+                    .setCallback(new FutureCallback<JsonObject>() {
+                        @Override
+                        public void onCompleted(Exception e, JsonObject result) {
+
+                        }
+                    });
             session.logoutUser();
             //Intent i = new Intent(MainActivity.this, LoginActivity.class);
             //startActivity(i);

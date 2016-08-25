@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_detail_article"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gandaedukasi.gandaedukasi.DetailArticleActivity">
-    <WebView
-        android:visibility="visible"
-        android:id="@+id/activity_main_webview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    android:padding="10dp"
+    android:background="@drawable/latar"
+    tools:context="com.gandaedukasi.gandaedukasi.DetailArticleActivity"
+    android:baselineAligned="false">
 
-    <TextView
-        android:visibility="gone"
-        android:text="Loading..."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvLoading" />
-</FrameLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Judul Artikel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvJudul"
+            android:textColor="@color/colorNormalWhite"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:srcCompat="@drawable/logo"
+            android:id="@+id/imgCover"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:text="asd asd  asdsa as sadasd sadsadsadassa asdasdas asd as das das dasdsadsadasd sadas dasd asd as dsad asd as dsa "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvContent"
+            android:textColor="@color/colorNormalWhite"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+
+</ScrollView>
