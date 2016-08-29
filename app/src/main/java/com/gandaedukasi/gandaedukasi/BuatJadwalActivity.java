@@ -121,6 +121,8 @@ public class BuatJadwalActivity extends AppCompatActivity {
         btnSubmit.setText("Selesai");
         btnSubmit.setTextSize(18);
         btnSubmit.setTextColor(getResources().getColor(R.color.colorPrimary));
+        btnSubmit.setHeight(300);
+        btnSubmit.setBackgroundResource(R.drawable.buttonround);
         //btnSubmit.setBackground(getResources().getDrawable(R.drawable.buttonround));
         li.addView(btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {

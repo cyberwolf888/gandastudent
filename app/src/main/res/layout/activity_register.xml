@@ -31,22 +31,14 @@
         </android.support.design.widget.TextInputLayout>
 
         //Email
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutNamaLengkap"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator12"
-            />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator12"
+            android:layout_below="@+id/layoutNamaLengkap"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="0dp"
-            android:id="@+id/layoutUsername">
+            android:id="@+id/layoutEmail">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,19 +51,11 @@
         </android.support.design.widget.TextInputLayout>
 
         //Password
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutUsername"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator13"
-            />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator13"
+            android:layout_below="@+id/layoutEmail"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="0dp"
             android:id="@+id/layoutPassword">
@@ -87,19 +71,11 @@
         </android.support.design.widget.TextInputLayout>
 
         //Phone
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutPassword"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator1"
-            />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator1"
+            android:layout_below="@+id/layoutPassword"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
             android:id="@+id/layoutPhone">
@@ -115,45 +91,32 @@
         </android.support.design.widget.TextInputLayout>
 
         //Education
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutPhone"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator2"
-            />
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Pendidikan"
             android:text="Tingkat Pendidikan"
-            android:layout_below="@+id/separator2"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/layoutPhone"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="3dp"
+            android:textSize="16dp"
             />
         <Spinner
             android:id="@+id/studentPendidikan"
             android:layout_below="@+id/Pendidikan"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:textColor="@color/colorNormalWhite"
             />
 
         //Tempat Lahir
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/studentPendidikan"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator3"
-            />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator3"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/studentPendidikan"
+            android:layout_marginTop="3dp"
             android:layout_marginLeft="0dp"
             android:id="@+id/layoutTempatLahir">
             <EditText
@@ -168,19 +131,11 @@
         </android.support.design.widget.TextInputLayout>
 
         //TGL Lahir
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutTempatLahir"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator4"
-            />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator4"
+            android:layout_below="@+id/layoutTempatLahir"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
             android:id="@+id/layoutTglLahir">
@@ -196,19 +151,11 @@
         </android.support.design.widget.TextInputLayout>
 
         //Wali
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutTglLahir"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator5"
-            />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator5"
+            android:layout_below="@+id/layoutTglLahir"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
             android:id="@+id/layoutWali">
@@ -223,20 +170,13 @@
                 android:textColorHighlight="@color/colorNormalWhite" />
         </android.support.design.widget.TextInputLayout>
 
-        //Address
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutWali"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator6"
+        //Address:id="@+id/separator6"
             />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator6"
+            android:layout_below="@+id/layoutWali"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
             android:id="@+id/layoutAddress">
@@ -252,19 +192,11 @@
         </android.support.design.widget.TextInputLayout>
 
         //Kode Pos
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/colorNormalWhite"
-            android:layout_below="@+id/layoutAddress"
-            android:layout_marginTop="10dp"
-            android:id="@+id/separator7"
-            />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/separator7"
+            android:layout_below="@+id/layoutAddress"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
             android:id="@+id/layoutKodePos">

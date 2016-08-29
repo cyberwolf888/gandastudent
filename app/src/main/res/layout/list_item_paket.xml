@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/list_mapel_jadwal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:background="@drawable/latar"
     android:orientation="vertical">
 
     <TextView
@@ -11,37 +12,48 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
-        android:textColorHint="@color/colorNormalWhite"
+        android:text="Nama Paket"
         android:textColor="@color/colorNormalWhite"
-        android:textColorHighlight="@color/colorNormalWhite"
+        />
     />
-
     <TextView
         android:id="@+id/durasi_paket"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/nama_paket"
         android:textSize="15dp"
+        android:text="Durasi"
         android:textColorHint="@color/colorNormalWhite"
         android:textColor="@color/colorNormalWhite"
-        android:textColorHighlight="@color/colorNormalWhite"
+        android:textColorHighlight="@color/colorPrimary"
         />
     <TextView
         android:id="@+id/jml_pertemuan_paket"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/durasi_paket"
         android:textSize="15dp"
+        android:text="Pertemuan"
         android:textColorHint="@color/colorNormalWhite"
         android:textColor="@color/colorNormalWhite"
         android:textColorHighlight="@color/colorNormalWhite"
         />
     <TextView
         android:id="@+id/harga_paket"
+        android:layout_below="@+id/jml_pertemuan_paket"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="17dp"
+        android:text="Harga"
         android:textColorHint="@color/colorNormalWhite"
         android:textColor="@color/colorNormalWhite"
         android:textColorHighlight="@color/colorNormalWhite"
         />
-
-</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/harga_paket"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorNormalWhite">
+    </View>
+</RelativeLayout>

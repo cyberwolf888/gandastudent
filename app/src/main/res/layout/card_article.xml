@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/cvArticle"
-    android:background="@color/colorPrimary"
+    android:layout_marginBottom="7dp"
+    app:cardCornerRadius="5dp"
     app:cardBackgroundColor="@color/colorTextButton">
 
     <RelativeLayout

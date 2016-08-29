@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:background="@drawable/latar"
     tools:context="com.gandaedukasi.gandaedukasi.fragments.ArticlesFragment">
 
     <android.support.v7.widget.RecyclerView

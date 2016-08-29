@@ -34,7 +34,7 @@
                 android:textSize="16dp"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/Lecture"
-                android:textColor="#000000"
+                android:textColor="@color/colorPrimary"
                 />
             //Date
             <TextView
@@ -56,7 +56,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_toRightOf="@+id/Date"
                 android:layout_below="@+id/studentLecture"
-                android:textColor="#000000"
+                android:textColor="@color/colorPrimary"
                 />
             //Time
             <TextView
@@ -78,7 +78,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_toRightOf="@+id/Time"
                 android:layout_below="@+id/studentDate"
-                android:textColor="#000000"
+                android:textColor="@color/colorPrimary"
                 />
             //Location
             <TextView
@@ -101,7 +101,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_toRightOf="@+id/Time"
                 android:layout_below="@+id/studentTime"
-                android:textColor="#000000"
+                android:textColor="@color/colorPrimary"
                 />
         </RelativeLayout>
     </android.support.v7.widget.CardView>

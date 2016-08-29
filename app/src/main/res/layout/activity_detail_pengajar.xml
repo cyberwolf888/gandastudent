@@ -64,6 +64,7 @@
             android:id="@+id/teacherPhone"
             android:layout_below="@+id/Phone"
             android:textSize="18dp"
+            android:text="000"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/colorNormalWhite"
@@ -231,7 +232,7 @@
             android:focusableInTouchMode="false"
             android:focusable="false"
             android:isIndicator="true"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="30dp"
             android:theme="@style/RatingBar"/>
 
         <Button

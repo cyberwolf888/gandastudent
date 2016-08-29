@@ -21,7 +21,8 @@
             android:id="@+id/tvJudul"
             android:textColor="@color/colorNormalWhite"
             android:textAlignment="center"
-            android:textSize="24sp" />
+            android:layout_marginTop="10dp"
+            android:textSize="24dp" />
 
         <ImageView
             android:visibility="gone"
