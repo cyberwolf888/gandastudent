@@ -136,8 +136,8 @@ public class PaymentActivity extends AppCompatActivity {
                                 }else{
                                     new AlertDialog.Builder(PaymentActivity.this)
                                             .setIcon(android.R.drawable.ic_dialog_alert)
-                                            .setTitle("Kosong!")
-                                            .setMessage("Pembayaran kosong")
+                                            .setTitle("Kosong")
+                                            .setMessage("Maaf, pembayaran sedang tidak tersedia")
                                             .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
