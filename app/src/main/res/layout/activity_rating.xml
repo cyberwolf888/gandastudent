@@ -149,7 +149,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonSubmit"
-            android:text="Rate Pengajar"
+            android:text="Submit Rating"
             android:layout_below="@+id/ratingBar"
             android:layout_centerHorizontal="true"
             android:textSize="18dp"

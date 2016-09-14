@@ -128,7 +128,7 @@ public class PertemuanActivity extends AppCompatActivity {
                                             .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
-                                                    Intent i = new Intent(PertemuanActivity.this, MainActivity.class);
+                                                    Intent i = new Intent(PertemuanActivity.this, MenuActivity.class);
                                                     ComponentName cn = i.getComponent();
                                                     Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
                                                     startActivity(mainIntent);
