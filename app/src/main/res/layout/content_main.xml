@@ -12,6 +12,17 @@
         android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        ></FrameLayout>
+        >
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/logo_big"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/fullscreen_content"
+            android:gravity="center"
+            android:foregroundGravity="center_vertical|center_horizontal"
+            />
+    </FrameLayout>
 
 </RelativeLayout>

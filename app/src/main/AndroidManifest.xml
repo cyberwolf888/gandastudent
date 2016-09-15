@@ -72,7 +72,9 @@
         <activity android:name=".PembayaranCashActivity" />
         <activity android:name=".PembayaranTransferActivity" />
         <activity android:name=".DetailPaymentActivity" />
-        <activity android:name=".DetailArticleActivity"></activity>
+        <activity android:name=".DetailArticleActivity" />
+        <activity android:name=".RescheduleActivity" />
+        <activity android:name=".CancelJadwalActivity"></activity>
     </application>
 
 </manifest>
