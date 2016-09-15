@@ -7,8 +7,8 @@ import org.json.JSONObject;
  */
 
 public class RequestServer {
-    private String server_url = "http://gandaedukasi.esy.es/android/";
-    private String images_url = "http://gandaedukasi.esy.es/images/";
+    private String server_url = "http://api.edukezy.com/";
+    private String images_url = "http://www.edukezy.com/images/";
     public String getServer_url(){
         return this.server_url;
     }

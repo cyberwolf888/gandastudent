@@ -121,7 +121,7 @@ public class BuatJadwalActivity extends AppCompatActivity {
         btnSubmit.setText("Selesai");
         btnSubmit.setTextSize(18);
         btnSubmit.setTextColor(getResources().getColor(R.color.colorPrimary));
-        btnSubmit.setHeight(300);
+        btnSubmit.setHeight(50);
         btnSubmit.setBackgroundResource(R.drawable.buttonround);
         //btnSubmit.setBackground(getResources().getDrawable(R.drawable.buttonround));
         li.addView(btnSubmit);
@@ -152,17 +152,17 @@ public class BuatJadwalActivity extends AppCompatActivity {
             etWaktuPertemuan.setError(null);
 
             if (TextUtils.isEmpty(etTglPertemuan.getText().toString())) {
-                etTglPertemuan.setError("Tanggal pertemuan tidak boleh kosong!");
+                etTglPertemuan.setError("Tanggal pertemuan tidak boleh kosong");
                 focusView = etTglPertemuan;
                 cancel = true;
             }
             if (TextUtils.isEmpty(etWaktuPertemuan.getText().toString())) {
-                etWaktuPertemuan.setError("Waktu pertemuan tidak boleh kosong!");
+                etWaktuPertemuan.setError("Waktu pertemuan tidak boleh kosong");
                 focusView = etWaktuPertemuan;
                 cancel = true;
             }
             if (TextUtils.isEmpty(etTempatPertemuan.getText().toString())) {
-                etTempatPertemuan.setError("Tempat pertemuan tidak boleh kosong!");
+                etTempatPertemuan.setError("Tempat pertemuan tidak boleh kosong");
                 focusView = etTempatPertemuan;
                 cancel = true;
             }
