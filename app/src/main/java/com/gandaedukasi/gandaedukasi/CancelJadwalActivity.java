@@ -79,7 +79,9 @@ public class CancelJadwalActivity extends AppCompatActivity {
         if (cancel) {
             focusView.requestFocus();
         }else {
+            if(isNetworkAvailable()){
 
+            }
         }
     }
 

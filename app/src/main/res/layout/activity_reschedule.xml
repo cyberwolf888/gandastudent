@@ -172,13 +172,32 @@
             android:layout_below="@+id/layoutTglPertemuan"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
+            android:id="@+id/layoutTime">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Waktu Pertemuan Baru"
+                android:id="@+id/waktuPertemuan"
+                android:inputType="text"
+                android:textColorHint="@color/colorNormalWhite"
+                android:textColor="@color/colorNormalWhite"
+                android:textColorHighlight="@color/colorNormalWhite" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/layoutTime"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
             android:id="@+id/layoutAlamat">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Tempat Pertemuan Baru"
                 android:id="@+id/tempatPertemuan"
-                android:inputType="date"
+                android:inputType="text"
                 android:textColorHint="@color/colorNormalWhite"
                 android:textColor="@color/colorNormalWhite"
                 android:textColorHighlight="@color/colorNormalWhite" />
@@ -197,7 +216,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Keterangan"
                 android:id="@+id/kekterangan"
-                android:inputType="date"
+                android:inputType="text"
                 android:textColorHint="@color/colorNormalWhite"
                 android:textColor="@color/colorNormalWhite"
                 android:textColorHighlight="@color/colorNormalWhite" />
