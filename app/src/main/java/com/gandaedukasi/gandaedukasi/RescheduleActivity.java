@@ -4,8 +4,11 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -29,7 +32,7 @@ import java.util.Calendar;
 
 public class RescheduleActivity extends AppCompatActivity {
 
-    private String jadwal_id,pertemuan,label_mapel,label_tanggal,label_waktu,label_tempat;
+    private String id,jadwal_id,pertemuan,label_mapel,label_tanggal,label_waktu,label_tempat;
     private Button btnKirim;
     private EditText tglPertemuan,waktuPertemuan,tempatPertemuan,kekterangan;
     private TextView studentPertemuan,studentLecture,studentDate,studentTime,studentPlace;
@@ -42,6 +45,7 @@ public class RescheduleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session = new Session(RescheduleActivity.this);
+        id = getIntent().getStringExtra("id");
         jadwal_id = getIntent().getStringExtra("jadwal_id");
         pertemuan = getIntent().getStringExtra("pertemuan");
         label_mapel = getIntent().getStringExtra("label_mapel");
@@ -150,21 +154,21 @@ public class RescheduleActivity extends AppCompatActivity {
                 pDialog.setCancelable(false);
                 pDialog.show();
 
-                String url = new RequestServer().getServer_url()+"tingkatpendidikan";
+                String url = new RequestServer().getServer_url()+"rescheduleJadwal";
 
                 JsonObject jsonReq = new JsonObject();
                 jsonReq.addProperty("user_id", session.getUserId());
-                jsonReq.addProperty("dt_jadwal_id", jadwal_id);
+                jsonReq.addProperty("dt_jadwal_id", id);
                 jsonReq.addProperty("requested_by", "SISWA");
                 jsonReq.addProperty("type", "RS");
                 jsonReq.addProperty("tglPertemuan", tanggal);
                 jsonReq.addProperty("waktuPertemuan", waktu);
                 jsonReq.addProperty("tempatPertemuan", tempat);
-                jsonReq.addProperty("kekterangan", ket);
+                jsonReq.addProperty("keterangan", ket);
 
                 Log.d("Test Request",">"+jsonReq);
 
-                /*Ion.with(RescheduleActivity.this)
+                Ion.with(RescheduleActivity.this)
                         .load(url)
                         //.setLogging("ION_VERBOSE_LOGGING", Log.VERBOSE)
                         .setJsonObjectBody(jsonReq)
@@ -172,11 +176,32 @@ public class RescheduleActivity extends AppCompatActivity {
                         .setCallback(new FutureCallback<JsonObject>() {
                             @Override
                             public void onCompleted(Exception e, JsonObject result) {
-
+                                Log.d("Response",">"+result);
+                                try{
+                                    String status = result.get("status").toString();
+                                    if (status.equals("1")){
+                                        new AlertDialog.Builder(RescheduleActivity.this)
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .setTitle("Berhasil")
+                                                .setMessage("Permintaan perubahan jadwal berhasil dikirim. Mohon tunggu konfirmasi dari support kami.")
+                                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        finish();
+                                                    }
+                                                })
+                                                .show();
+                                        //Toast.makeText(getApplicationContext(), "Permintaan perubahan jadwal berhasil dikirim. Mohon tunggu konfirmasi dari support kami.", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        String error = result.get("error").getAsString();
+                                        Toast.makeText(getApplicationContext(), error, Toast.LENGTH_LONG).show();
+                                    }
+                                }catch (Exception ex){
+                                    Toast.makeText(getApplicationContext(), getString(R.string.id_error_network), Toast.LENGTH_LONG).show();
+                                }
+                                pDialog.dismiss();
                             }
                         });
-            */
-                pDialog.dismiss();
 
             }
         }

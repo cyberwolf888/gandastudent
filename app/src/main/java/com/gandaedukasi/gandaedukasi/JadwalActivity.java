@@ -102,6 +102,7 @@ public class JadwalActivity extends AppCompatActivity {
                                             photo = objData.get("photo").getAsString();
                                         }
                                         jadwals.add(new Jadwal(
+                                                objData.get("id").getAsString(),
                                                 objData.get("jadwal_id").getAsString(),
                                                 objData.get("detail_jadwal_id").getAsString(),
                                                 objData.get("nama_pengajar").getAsString(),

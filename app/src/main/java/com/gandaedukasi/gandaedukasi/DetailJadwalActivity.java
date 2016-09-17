@@ -15,7 +15,7 @@ import com.koushikdutta.ion.Ion;
 
 public class DetailJadwalActivity extends AppCompatActivity {
 
-    private String jadwal_id, detail_jadwal_id, nama_siswa, no_telp, photo, label_mapel, label_tanggal, label_waktu, label_tempat, pertemuan;
+    private String id,jadwal_id, detail_jadwal_id, nama_siswa, no_telp, photo, label_mapel, label_tanggal, label_waktu, label_tempat, pertemuan;
     private TextView studentName, studentSchool, studentPertemuan, studentLecture, studentDate, studentTime, studentPlace;
     private ImageView studentPhoto;
     private Button buttonReschedule,buttonCancel;
@@ -26,6 +26,7 @@ public class DetailJadwalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session = new Session(DetailJadwalActivity.this);
+        id = getIntent().getStringExtra("id");
         jadwal_id = getIntent().getStringExtra("jadwal_id");
         detail_jadwal_id = getIntent().getStringExtra("detail_jadwal_id");
         nama_siswa = getIntent().getStringExtra("nama_siswa");
@@ -74,6 +75,7 @@ public class DetailJadwalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(DetailJadwalActivity.this,CancelJadwalActivity.class);
+                i.putExtra("id",id);
                 i.putExtra("jadwal_id",jadwal_id);
                 i.putExtra("pertemuan",pertemuan);
                 i.putExtra("label_mapel",label_mapel);
@@ -88,6 +90,7 @@ public class DetailJadwalActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(DetailJadwalActivity.this,RescheduleActivity.class);
+                i.putExtra("id",id);
                 i.putExtra("jadwal_id",jadwal_id);
                 i.putExtra("pertemuan",pertemuan);
                 i.putExtra("label_mapel",label_mapel);

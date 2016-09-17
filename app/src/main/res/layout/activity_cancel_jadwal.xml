@@ -158,8 +158,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Keterangan"
-                android:id="@+id/kekterangan"
-                android:inputType="date"
+                android:id="@+id/keterangan"
+                android:inputType="text"
                 android:textColorHint="@color/colorNormalWhite"
                 android:textColor="@color/colorNormalWhite"
                 android:textColorHighlight="@color/colorNormalWhite" />
