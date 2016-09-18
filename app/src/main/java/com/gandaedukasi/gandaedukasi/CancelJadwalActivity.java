@@ -83,7 +83,7 @@ public class CancelJadwalActivity extends AppCompatActivity {
         View focusView = null;
 
         if (TextUtils.isEmpty(ket)) {
-            keterangan.setError(getString(R.string.id_error_kode_pos_empty));
+            keterangan.setError("Keterangan tidak boleh kosong.");
             focusView = keterangan;
             cancel = true;
         }

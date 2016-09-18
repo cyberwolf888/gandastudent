@@ -133,7 +133,7 @@ public class RescheduleActivity extends AppCompatActivity {
         }
 
         if (TextUtils.isEmpty(tempat)) {
-            tempatPertemuan.setError("Temapt pertemuan tidak boleh kosong");
+            tempatPertemuan.setError("Tempat pertemuan tidak boleh kosong");
             focusView = tempatPertemuan;
             cancel = true;
         }
