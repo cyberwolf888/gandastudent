@@ -25,25 +25,15 @@
             android:layout_marginLeft="5dp"
             />
         <TextView
-            android:layout_width="250dp"
-            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:id="@+id/articleTitle"
             android:text="Judul Artikel"
             android:textSize="18dp"
             android:layout_toRightOf="@+id/articleImage"
             android:textColor="@color/colorNormalWhite"
-            android:layout_marginTop="7dp"
-            />
-        <TextView
-            android:layout_marginTop="26dp"
-            android:layout_width="250dp"
-            android:layout_height="80dp"
-            android:id="@+id/articleDescription"
-            android:text="content content content content content content content content content content content content content content"
-            android:textSize="12dp"
-            android:layout_toRightOf="@+id/articleImage"
-            android:layout_gravity="right|center"
-            android:textColor="@color/colorNormalWhite"
+            android:layout_marginLeft="8dp"
+            android:gravity="center_vertical"
             />
 
     </RelativeLayout>

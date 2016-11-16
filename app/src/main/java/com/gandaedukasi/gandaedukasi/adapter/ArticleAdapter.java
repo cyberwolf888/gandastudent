@@ -33,7 +33,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     public class ArticleViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
         TextView articleTitle;
-        TextView articleDescription;
+        //TextView articleDescription;
         ImageView articleImage;
         public ArticleViewHolder(View itemView) {
             super(itemView);
@@ -55,7 +55,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
             });
             cv = (CardView)itemView.findViewById(R.id.cvArticle);
             articleTitle = (TextView)itemView.findViewById(R.id.articleTitle);
-            articleDescription = (TextView)itemView.findViewById(R.id.articleDescription);
+            //articleDescription = (TextView)itemView.findViewById(R.id.articleDescription);
             articleImage = (ImageView)itemView.findViewById(R.id.articleImage);
         }
     }
@@ -94,7 +94,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         }
 
         articleViewHolder.articleTitle.setText(articles.get(i).title);
-        articleViewHolder.articleDescription.setText(articles.get(i).created_at);
+        //articleViewHolder.articleDescription.setText(articles.get(i).created_at);
         //articleViewHolder.articleImage.setImageResource(R.drawable.logo);
     }
 
