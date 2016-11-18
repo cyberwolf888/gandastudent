@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/list_mapel_jadwal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    android:background="@drawable/latar"
     android:orientation="vertical">
 
     <TextView
@@ -15,7 +14,6 @@
         android:text="Nama Paket"
         android:textColor="@color/colorNormalWhite"
         />
-    />
     <TextView
         android:id="@+id/durasi_paket"
         android:layout_width="fill_parent"
@@ -56,4 +54,4 @@
         android:layout_marginTop="10dp"
         android:background="@color/colorNormalWhite">
     </View>
-</RelativeLayout>
+</LinearLayout>

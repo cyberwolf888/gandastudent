@@ -302,7 +302,8 @@ public class RegisterActivity extends AppCompatActivity {
             jsonReq.addProperty("tempat_lahir", tempat_lahir);
             jsonReq.addProperty("tgl_lahir", tgl_lahir);
             jsonReq.addProperty("wali", wali);
-            jsonReq.addProperty("alamat", alamat+","+kodePos);
+            jsonReq.addProperty("alamat", alamat);
+            jsonReq.addProperty("kodepos", kodePos);
             jsonReq.addProperty("tingkat", tingkat);
             //jsonReq.addProperty("zona", zona);
             Log.d("Request",">"+jsonReq);
