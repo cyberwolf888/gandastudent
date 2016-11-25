@@ -17,6 +17,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.gandaedukasi.gandaedukasi.utility.RequestServer;
+import com.gandaedukasi.gandaedukasi.utility.Session;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
@@ -31,9 +32,11 @@ public class PilihPaketctivity extends AppCompatActivity {
     ArrayList<HashMap<String, String>> itemList;
     JsonArray mData;
     String pengajar_id,mapel_id;
+    private Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        session = new Session(PilihPaketctivity.this);
         pengajar_id = getIntent().getStringExtra("pengajar_id");
         mapel_id = getIntent().getStringExtra("mapel_id");
         setContentView(R.layout.activity_pilih_paketctivity);
@@ -71,7 +74,8 @@ public class PilihPaketctivity extends AppCompatActivity {
             Log.d("Login Url",">"+url);
 
             JsonObject jsonReq = new JsonObject();
-            jsonReq.addProperty("user_id", true);
+            jsonReq.addProperty("user_id", session.getUserId());
+            jsonReq.addProperty("pengajar_id",pengajar_id);
             Log.d("Req Data",">"+jsonReq);
 
             Ion.with(PilihPaketctivity.this)
@@ -95,7 +99,9 @@ public class PilihPaketctivity extends AppCompatActivity {
                                         dataList.put("nama",objData.get("nama").getAsString());
                                         dataList.put("jumlah_pertemuan",objData.get("jumlah_pertemuan").getAsString()+" Pertemuan");
                                         dataList.put("durasi",objData.get("durasi").getAsString()+" Menit");
-                                        dataList.put("label_harga","Rp. "+objData.get("label_harga").getAsString());
+                                        dataList.put("label_harga",objData.get("label_harga").getAsString());
+                                        dataList.put("label_bonus",objData.get("label_bonus").getAsString());
+                                        dataList.put("label_total",objData.get("label_total").getAsString());
                                         xitemList.add(dataList);
                                     }
                                     itemList = xitemList;
@@ -104,8 +110,8 @@ public class PilihPaketctivity extends AppCompatActivity {
                                             PilihPaketctivity.this,
                                             itemList,
                                             R.layout.list_item_paket,
-                                            new String[]{"nama","jumlah_pertemuan","durasi","label_harga"},
-                                            new int[]{R.id.nama_paket,R.id.durasi_paket,R.id.jml_pertemuan_paket,R.id.harga_paket}
+                                            new String[]{"nama","jumlah_pertemuan","durasi","label_harga","label_bonus","label_total"},
+                                            new int[]{R.id.nama_paket,R.id.durasi_paket,R.id.jml_pertemuan_paket,R.id.harga_paket,R.id.tarif_pengajar,R.id.total_harga}
                                     );
                                     listView.setAdapter(adapter);
                                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

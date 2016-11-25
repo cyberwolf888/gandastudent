@@ -18,7 +18,6 @@
         android:id="@+id/durasi_paket"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nama_paket"
         android:textSize="15dp"
         android:text="Durasi"
         android:textColorHint="@color/colorNormalWhite"
@@ -29,7 +28,6 @@
         android:id="@+id/jml_pertemuan_paket"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/durasi_paket"
         android:textSize="15dp"
         android:text="Pertemuan"
         android:textColorHint="@color/colorNormalWhite"
@@ -38,7 +36,26 @@
         />
     <TextView
         android:id="@+id/harga_paket"
-        android:layout_below="@+id/jml_pertemuan_paket"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:text="Harga"
+        android:textColorHint="@color/colorNormalWhite"
+        android:textColor="@color/colorNormalWhite"
+        android:textColorHighlight="@color/colorNormalWhite"
+        />
+    <TextView
+        android:id="@+id/tarif_pengajar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="17dp"
+        android:text="Harga"
+        android:textColorHint="@color/colorNormalWhite"
+        android:textColor="@color/colorNormalWhite"
+        android:textColorHighlight="@color/colorNormalWhite"
+        />
+    <TextView
+        android:id="@+id/total_harga"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="17dp"
