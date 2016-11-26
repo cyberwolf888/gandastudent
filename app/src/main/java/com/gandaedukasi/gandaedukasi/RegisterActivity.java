@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gandaedukasi.gandaedukasi.utility.RequestServer;
@@ -34,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText studentName,editEmail,editPassword,studentPhone,studenTempatLahir,studentTglLahir,studentWali,studentAddress, studentKodePos;
     Spinner studentPendidikan,studentZone;
+    TextView tvKodePos;
 
     DatePickerDialog tglLahir;
 
@@ -59,6 +61,7 @@ public class RegisterActivity extends AppCompatActivity {
         studentWali = (EditText) findViewById(R.id.studentWali);
         studentAddress = (EditText) findViewById(R.id.studentAddress);
         studentKodePos = (EditText) findViewById(R.id.studentKodePos);
+        tvKodePos = (TextView) findViewById(R.id.tvKodePos);
 
         studentPendidikan = (Spinner) findViewById(R.id.studentPendidikan);
         //studentZone = (Spinner) findViewById(R.id.studentZone);
@@ -66,6 +69,14 @@ public class RegisterActivity extends AppCompatActivity {
         buttonReg = (Button) findViewById(R.id.buttonReg);
 
         studentTglLahir.setFocusable(false);
+
+        tvKodePos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RegisterActivity.this, CariKodePosActivity.class);
+                startActivity(i);
+            }
+        });
 
         setDateTimeField();
 
