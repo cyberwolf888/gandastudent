@@ -220,7 +220,7 @@ public class BuatJadwalActivity extends AppCompatActivity {
     }
     private void setDateField(final EditText et) {
         final Calendar newCalendar = Calendar.getInstance();
-        newCalendar.set(newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH)+7);
+        newCalendar.set(newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH)+1);
         tgl_pertemuan = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {

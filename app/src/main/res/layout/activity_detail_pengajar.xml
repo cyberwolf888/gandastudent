@@ -48,6 +48,7 @@
             android:layout_below="@+id/cardView"
             android:layout_marginTop="10dp"
             android:id="@+id/separator1"
+            android:visibility="gone"
             />
 
         <TextView
@@ -57,6 +58,7 @@
             android:text="No. Telp"
             android:layout_below="@+id/separator1"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -68,6 +70,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/colorNormalWhite"
+            android:visibility="gone"
             />
 
         //Education
