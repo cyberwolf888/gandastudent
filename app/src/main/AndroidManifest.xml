@@ -75,7 +75,9 @@
         <activity android:name=".DetailArticleActivity" />
         <activity android:name=".RescheduleActivity" />
         <activity android:name=".CancelJadwalActivity" />
-        <activity android:name=".CariKodePosActivity"></activity>
+        <activity android:name=".CariKodePosActivity" />
+        <activity android:name=".ContactActivity" />
+        <activity android:name=".ResetPasswordActivity"></activity>
     </application>
 
 </manifest>

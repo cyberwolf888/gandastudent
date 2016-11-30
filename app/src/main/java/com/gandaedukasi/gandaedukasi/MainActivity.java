@@ -123,11 +123,13 @@ public class MainActivity extends AppCompatActivity
             getSupportActionBar().setTitle("Main Menu");*/
             Intent i = new Intent(MainActivity.this, MenuActivity.class);
             startActivity(i);
-        }else if (id == R.id.nav_login){
+        } else if (id == R.id.nav_contact){
+            Intent i = new Intent(MainActivity.this, ContactActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_login){
             Intent i = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(i);
-        }
-        else if (id == R.id.nav_logout){
+        } else if (id == R.id.nav_logout){
             String url = new RequestServer().getServer_url()+"deleteNotif";
             Ion.with(MainActivity.this)
                     .load(url)
