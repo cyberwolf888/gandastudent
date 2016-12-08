@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/latar"
+    android:orientation="vertical"
     tools:context="com.gandaedukasi.gandaedukasi.PembayaranCashActivity">
 
     <TextView
@@ -13,9 +14,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tvInfo"
-        tools:text="Silahkan lakukan pembayaran pada cabang terdekat"
-        android:textSize="30sp"
+        tools:text="Silahkan lakukan pembayaran pada cabang terdekat atau pada pengajar."
+        android:textSize="25sp"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
         android:textColor="@color/colorNormalWhite" />
+
+    <TextView
+        android:text="Contact:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorNormalWhite"
+        android:id="@+id/textView8" />
+    <TextView
+        android:text="0821-4456-0004"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:id="@+id/textView4" />
+    <TextView
+        android:text="0878-6004-3300"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        android:id="@+id/textView7" />
 </LinearLayout>
