@@ -135,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Tempat"
-            android:text="Tempat: "
+            android:text="Cabang: "
             android:layout_gravity="top|center"
             android:layout_below="@id/tvLabelMapel"
             android:layout_toRightOf="@+id/imageTeacher"

@@ -11,11 +11,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.gandaedukasi.gandaedukasi.adapter.CariPengajarAdapter;
+import com.gandaedukasi.gandaedukasi.adapter.CariPengajarLainAdapter;
 import com.gandaedukasi.gandaedukasi.models.CariPengajar;
 import com.gandaedukasi.gandaedukasi.utility.RequestServer;
 import com.gandaedukasi.gandaedukasi.utility.Session;
@@ -27,10 +26,10 @@ import com.koushikdutta.ion.Ion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CariPengajarActivity extends AppCompatActivity {
+public class CariPengajarCabangLainActivity extends AppCompatActivity {
     private List<CariPengajar> cariPengajars;
     protected RecyclerView mRecyclerView;
-    protected CariPengajarAdapter mAdapter;
+    protected CariPengajarLainAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected ProgressDialog pDialog;
     public JsonArray data;
@@ -40,12 +39,11 @@ public class CariPengajarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        session = new Session(CariPengajarActivity.this);
+        session = new Session(CariPengajarCabangLainActivity.this);
         mapel_id = getIntent().getStringExtra("mapel_id");
-        setContentView(R.layout.list_cari_pengajar);
+        setContentView(R.layout.activity_cari_pengajar_cabang_lain);
         mRecyclerView = (RecyclerView) findViewById(R.id.rvCariPengajar);
-        mLayoutManager = new LinearLayoutManager(CariPengajarActivity.this);
-
+        mLayoutManager = new LinearLayoutManager(CariPengajarCabangLainActivity.this);
     }
 
     @Override
@@ -56,14 +54,14 @@ public class CariPengajarActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(CariPengajarActivity.this, ListMapelJadwalActivity.class);
+        Intent i = new Intent(CariPengajarCabangLainActivity.this, ListMapelJadwalActivity.class);
         startActivity(i);
         finish();
     }
 
     private void getData(){
         if(isNetworkAvailable()){
-            pDialog = new ProgressDialog(CariPengajarActivity.this);
+            pDialog = new ProgressDialog(CariPengajarCabangLainActivity.this);
             pDialog.setMessage("Loading...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
@@ -78,13 +76,13 @@ public class CariPengajarActivity extends AppCompatActivity {
 
             cariPengajars = new ArrayList<>();
             data = new JsonArray();
-            String url = new RequestServer().getServer_url() + "getJadwalByMapel";
+            String url = new RequestServer().getServer_url() + "getJadwalByMapelLain";
             Log.d("test url",url);
             JsonObject jsonReq = new JsonObject();
             jsonReq.addProperty("user_id", session.getUserId());
             jsonReq.addProperty("mapel_id", mapel_id);
             Log.d("test request",jsonReq.toString());
-            Ion.with(CariPengajarActivity.this)
+            Ion.with(CariPengajarCabangLainActivity.this)
                     .load(url)
                     .setJsonObjectBody(jsonReq)
                     .asJsonObject()
@@ -110,7 +108,7 @@ public class CariPengajarActivity extends AppCompatActivity {
                                                 photo
                                         ));
                                     }
-                                    mAdapter = new CariPengajarAdapter(CariPengajarActivity.this, cariPengajars, mapel_id);
+                                    mAdapter = new CariPengajarLainAdapter(CariPengajarCabangLainActivity.this, cariPengajars, mapel_id);
                                     mRecyclerView.setAdapter(mAdapter);
                                     mRecyclerView.setLayoutManager(mLayoutManager);
                                 }else{

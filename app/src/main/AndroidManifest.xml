@@ -77,7 +77,8 @@
         <activity android:name=".CancelJadwalActivity" />
         <activity android:name=".CariKodePosActivity" />
         <activity android:name=".ContactActivity" />
-        <activity android:name=".ResetPasswordActivity"></activity>
+        <activity android:name=".ResetPasswordActivity" />
+        <activity android:name=".CariPengajarCabangLainActivity"></activity>
     </application>
 
 </manifest>
