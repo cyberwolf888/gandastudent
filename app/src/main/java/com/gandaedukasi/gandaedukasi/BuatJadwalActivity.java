@@ -112,6 +112,18 @@ public class BuatJadwalActivity extends AppCompatActivity {
             etTempatPertemuan.setInputType(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE);
             til3.addView(etTempatPertemuan);
 
+            TextInputLayout til4 = new TextInputLayout(BuatJadwalActivity.this);
+            til4.setLayoutParams(params2);
+            til4.setHint("No. Handphone ");
+            li.addView(til4);
+
+            final EditText etPhone = new EditText(BuatJadwalActivity.this);
+            etPhone.setLayoutParams(params);
+            etPhone.setId(60+i);
+            etPhone.setText("");
+            etPhone.setInputType(InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE);
+            til4.addView(etPhone);
+
         }
 
         LinearLayout.LayoutParams params3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
@@ -147,6 +159,7 @@ public class BuatJadwalActivity extends AppCompatActivity {
             EditText etTglPertemuan = (EditText) findViewById(30+i);
             EditText etWaktuPertemuan = (EditText) findViewById(40+i);
             EditText etTempatPertemuan = (EditText) findViewById(50+i);
+            EditText etPhone = (EditText) findViewById(60+i);
 
             etTglPertemuan.setError(null);
             etWaktuPertemuan.setError(null);
@@ -166,9 +179,14 @@ public class BuatJadwalActivity extends AppCompatActivity {
                 focusView = etTempatPertemuan;
                 cancel = true;
             }
+            if (TextUtils.isEmpty(etPhone.getText().toString())) {
+                etPhone.setError("No Hp pertemuan tidak boleh kosong");
+                focusView = etPhone;
+                cancel = true;
+            }
             jsonReq.addProperty("tgl_pertemuan"+i, etTglPertemuan.getText().toString());
             jsonReq.addProperty("waktu_pertemuan"+i, etWaktuPertemuan.getText().toString());
-            jsonReq.addProperty("tempat_pertemuan"+i, etTempatPertemuan.getText().toString());
+            jsonReq.addProperty("tempat_pertemuan"+i, etTempatPertemuan.getText().toString()+" ("+etPhone.getText().toString()+")");
         }
         Log.d("Request",">"+jsonReq);
         if (cancel) {

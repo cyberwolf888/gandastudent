@@ -110,6 +110,7 @@
             android:layout_below="@+id/teacherEdu"
             android:layout_marginTop="10dp"
             android:id="@+id/separator3"
+            android:visibility="gone"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -118,6 +119,7 @@
             android:text="Alamat"
             android:layout_below="@+id/separator3"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -129,6 +131,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/colorNormalWhite"
+            android:visibility="gone"
             />
 
         //Lecture
