@@ -17,6 +17,58 @@
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorNormalWhite"
+                android:textSize="18dp"
+                android:padding="10dp"
+                android:text="Silahkan lakukan pembayaran ke salah satu rekening berikut:" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorNormalWhite"
+                android:textSize="18dp"
+                android:paddingLeft="10dp"
+                android:text="Bank BCA" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorNormalWhite"
+                android:textSize="20dp"
+                android:paddingLeft="10dp"
+                android:text="772-526-7703" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorNormalWhite"
+                android:textSize="18dp"
+                android:paddingLeft="10dp"
+                android:text="A/n I Made Adhy Suryanta Saputra" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorNormalWhite"
+                android:textSize="18dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                android:text="Bank BRI" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorNormalWhite"
+                android:textSize="20dp"
+                android:paddingLeft="10dp"
+                android:text="1536-0100-1461-506" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorNormalWhite"
+                android:textSize="18dp"
+                android:paddingLeft="10dp"
+                android:text="A/n I Made Adhy Suryanta Saputra" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="21dp"
                 android:id="@+id/textView"
                 android:textColor="@color/colorNormalWhite"
