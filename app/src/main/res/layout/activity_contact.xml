@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_contact"
     android:layout_width="match_parent"
@@ -8,9 +8,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     android:background="@drawable/latar"
     tools:context="com.gandaedukasi.gandaedukasi.ContactActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
 
     <TextView
         android:text="Silakan hubungi kontak dibawah ini jika anda memiliki kesulitan atau masalah dalam penggunaan aplikasi ini:"
@@ -48,15 +53,92 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorNormalWhite"
-        android:id="@+id/textView5" />
-
+        android:textColor="@color/colorNormalWhite" />
     <TextView
         android:text="info@edukezy.com"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorNormalWhite"
-        android:textSize="25dp"
-        android:id="@+id/textView6" />
-    
-</LinearLayout>
+        android:textSize="25dp" />
+
+    <TextView
+        android:text="Pin BBM:"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite" />
+    <TextView
+        android:text="D4B871DF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="25dp" />
+
+    <TextView
+        android:text="Twitter:"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite" />
+    <TextView
+        android:text="\@ganda_edukasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="25dp" />
+
+    <TextView
+        android:text="Path:"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite" />
+    <TextView
+        android:text="Ganda Edukasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="25dp" />
+
+
+
+    <TextView
+        android:text="Instagram:"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite" />
+    <TextView
+        android:text="ganda_dukasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="25dp" />
+
+    <TextView
+        android:text="Facebook:"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite" />
+    <TextView
+        android:text="Edukezy Ganda Edukasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="25dp" />
+
+    <TextView
+        android:text="Facebook Fanpage:"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite" />
+    <TextView
+        android:text="Bimbingan Belajar Ganda Edukasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorNormalWhite"
+        android:textSize="25dp" />
+    </LinearLayout>
+</ScrollView>
